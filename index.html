@@ -415,35 +415,72 @@
         <a href="#complaint" class="bni">📋<span>तक्रार</span></a>
     </nav>
 
-    <!-- DONATION MODAL -->
+    <!-- DONATION MODAL (PREMIUM PAYMENT PORTAL) -->
     <div class="modal-overlay" id="donation-modal" onclick="closeDonationModal(event)">
-        <div class="modal-box">
+        <div class="modal-box premium-payment-portal">
             <button class="modal-close-btn" onclick="closeDonationModal()">✕</button>
+            
             <div class="modal-head">
                 <span class="modal-diya">🪔</span>
-                <h2>देणगी द्या</h2>
-                <p>आपल्या देणगीमुळे मंदिराचा विकास होतो</p>
+                <h2 class="text-gold-gradient">देणगी अर्पण करा</h2>
+                <p>तुमची देणगी मंदिराच्या विकासासाठी मोलाची आहे</p>
             </div>
-            <div class="donation-amounts">
-                <button class="damount" onclick="setAmount(101)">₹ १०१</button>
-                <button class="damount" onclick="setAmount(251)">₹ २५१</button>
-                <button class="damount" onclick="setAmount(501)">₹ ५०१</button>
-                <button class="damount" onclick="setAmount(1001)">₹ १,०००</button>
-                <button class="damount" onclick="setAmount(2101)">₹ २,१०१</button>
-                <button class="damount" onclick="setAmount(5001)">₹ ५,०००</button>
-            </div>
-            <input type="number" id="custom-amount" class="custom-amt" placeholder="किंवा रक्कम लिहा (₹)">
-            <div class="pay-methods">
-                <div class="pay-method">
-                    <span class="pay-icon">📱</span>
-                    <div><strong>UPI</strong><p id="upi-display">renukadevi@upi</p><button class="copy-upi-btn" onclick="copyUPI()">📋 कॉपी करा</button></div>
+            
+            <div class="portal-grid">
+                <!-- Left/Top: Amount Selection -->
+                <div class="amount-section">
+                    <h3 class="step-title"><span class="step-num">१</span> रक्कम निवडा</h3>
+                    <div class="donation-amounts">
+                        <button class="damount" onclick="setAmount(101)">₹ १०१</button>
+                        <button class="damount" onclick="setAmount(251)">₹ २५१</button>
+                        <button class="damount" onclick="setAmount(501)">₹ ५०१</button>
+                        <button class="damount" onclick="setAmount(1001)">₹ १,०००</button>
+                        <button class="damount" onclick="setAmount(2101)">₹ २,१०१</button>
+                        <button class="damount" onclick="setAmount(5001)">₹ ५,०००</button>
+                    </div>
+                    <input type="number" id="custom-amount" class="custom-amt" placeholder="किंवा स्वतःची रक्कम लिहा (₹)">
                 </div>
-                <div class="pay-method">
-                    <span class="pay-icon">🏦</span>
-                    <div><strong>बँक ट्रान्सफर</strong><p>A/c: XXXX XXXX XXXX</p><p>IFSC: XXXXXXXXXXXX</p></div>
+
+                <!-- Right/Bottom: QR Code & Payment Methods -->
+                <div class="payment-section">
+                    <h3 class="step-title"><span class="step-num">२</span> पेमेंट करा</h3>
+                    
+                    <div class="qr-code-box">
+                        <div class="qr-placeholder" id="qr-placeholder">
+                            <span class="qr-icon">📱</span>
+                            <p>QR कोड इथे येईल</p>
+                            <!-- User will replace this with their actual QR Code Image:
+                            <img src="images/my-qr-code.png" alt="Donate QR Code" class="qr-image">
+                            -->
+                        </div>
+                        <p class="qr-instruction">कोणत्याही UPI ॲपने स्कॅन करा<br>(GPay, PhonePe, Paytm)</p>
+                    </div>
+                    
+                    <div class="pay-methods">
+                        <div class="pay-method">
+                            <span class="pay-icon">🔗</span>
+                            <div class="pay-method-content">
+                                <strong>UPI ID</strong>
+                                <p id="upi-display">renukadevi@upi</p>
+                            </div>
+                            <button class="copy-upi-btn" onclick="copyUPI()">कॉपी करा</button>
+                        </div>
+                        <div class="pay-method bank-details">
+                            <span class="pay-icon">🏦</span>
+                            <div class="pay-method-content">
+                                <strong>बँक खाते तपशील</strong>
+                                <p>Bank: बँक ऑफ महाराष्ट्र</p>
+                                <p>A/c: ०१२३४५६७८९</p>
+                                <p>IFSC: MAHB000000</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <p class="donate-note">* पावतीसाठी मंदिर मंडळाशी संपर्क साधा</p>
+            
+            <div class="modal-footer">
+                <p class="donate-note">* देणगी दिल्यानंतर पावतीसाठी कृपया मंदिर मंडळाशी संपर्क साधा.</p>
+            </div>
         </div>
     </div>
     <!-- AUDIO PLAYER -->
