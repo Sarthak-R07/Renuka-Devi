@@ -40,7 +40,7 @@
 
     <header id="home" class="hero">
         <div class="hero-bg">
-            <video autoplay loop muted playsinline class="hero-video" poster="images/temple-hero.png">
+            <video loop muted playsinline preload="none" id="hero-video" class="hero-video" poster="images/temple-hero.png">
                 <source src="videos/ranisawargaon-cinematic-cropped.mp4" type="video/mp4">
             </video>
             <div class="hero-overlay"></div>
@@ -450,7 +450,7 @@
     <button id="audio-toggle" class="audio-toggle" onclick="toggleAudio()" aria-label="Play Aarti">
         <span class="audio-icon" id="audio-icon">🔇</span>
     </button>
-    <audio id="temple-audio" loop src="audio/ritu_tts_audio.mp3"></audio>
+    <audio id="temple-audio" loop preload="none" src="audio/ritu_tts_audio.mp3"></audio>
 
     <script src="script.js"></script>
 </body>

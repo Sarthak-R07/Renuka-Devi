@@ -17,6 +17,12 @@ const galleryData = [];
 
 // ===== INITIALIZE =====
 document.addEventListener('DOMContentLoaded', () => {
+    // Play video only on desktop for performance
+    if (window.innerWidth > 768) {
+        const vid = document.getElementById('hero-video');
+        if (vid) vid.play().catch(e => console.log('Autoplay blocked'));
+    }
+    
     initScrollAnimations();
     initDarshanDate();
     initNavbar();

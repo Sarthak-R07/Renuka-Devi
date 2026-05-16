@@ -49,7 +49,7 @@ body {
         radial-gradient(circle at 50% 0%, rgba(74, 14, 14, 0.3) 0%, transparent 40%),
         radial-gradient(circle at 100% 50%, rgba(255, 179, 0, 0.05) 0%, transparent 50%),
         radial-gradient(circle at 0% 100%, rgba(255, 87, 34, 0.08) 0%, transparent 50%);
-    background-attachment: fixed;
+    /* Removed fixed background attachment for performance */
     line-height: 1.8;
     -webkit-font-smoothing: antialiased;
     overflow-x: hidden;
@@ -430,7 +430,25 @@ button { border: none; cursor: pointer; background: none; font-family: inherit; 
 }
 
 @media (max-width: 768px) {
+    /* Performance optimizations for mobile */
     body { padding-bottom: 80px; }
+    .hero-video { display: none; }
+    .hero-bg { background: url('images/temple-hero.png') center/cover no-repeat; }
+    .premium-card, .faq-item, .ctype-card, .pay-method, .darshan-frame, .share-btn { 
+        backdrop-filter: none; -webkit-backdrop-filter: none;
+        background: #120C09; /* Solid background instead of glassmorphism */
+        box-shadow: none; border-color: rgba(255,179,0,0.2);
+    }
+    .mobile-bottom-nav, .nav-menu {
+        backdrop-filter: none; -webkit-backdrop-filter: none;
+        background: #050404;
+        box-shadow: 0 -4px 10px rgba(0,0,0,0.9);
+    }
+    .modal-box, .modal-overlay {
+        backdrop-filter: none; -webkit-backdrop-filter: none;
+    }
+    .hero-title-marathi { animation: none; background: none; -webkit-text-fill-color: var(--pale-gold); color: var(--pale-gold); }
+    * { box-shadow: none !important; } /* Nuke shadows on mobile for speed */
     .mobile-bottom-nav { display: flex; }
     .nav-donate-btn { display: none; }
     .nav-toggle { display: flex; }
