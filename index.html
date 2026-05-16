@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Renuka Devi Temple | Ranisawargaon, Parbhani</title>
+    <meta name="description" content="Discover the ancient Renuka Devi Temple in Ranisawargaon village, Gangakhed, Parbhani, Maharashtra.">
+    <meta property="og:title" content="Renuka Devi Temple | Ranisawargaon">
+    <meta property="og:description" content="Sacred heritage of Marathwada - Renuka Devi Temple">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="images/temple-hero.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav id="main-nav" class="navbar">
+        <div class="nav-container">
+            <a href="#home" class="nav-logo" id="nav-logo">
+                <span class="nav-logo-icon">🙏</span>
+                <span class="nav-logo-text">रेणुका देवी मंदिर</span>
+            </a>
+            <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+                <span class="hamburger"></span>
+            </button>
+            <ul class="nav-menu" id="nav-menu">
+                <li><a href="#home" class="nav-link active">मुख्यपृष्ठ</a></li>
+                <li><a href="#about" class="nav-link">परिचय</a></li>
+                <li><a href="#about-us" class="nav-link">आमच्याबद्दल</a></li>
+                <li><a href="#history" class="nav-link">इतिहास</a></li>
+                <li><a href="#visit" class="nav-link">दर्शन माहिती</a></li>
+                <li><a href="#gallery" class="nav-link">फोटो लायब्ररी</a></li>
+                <li><a href="#help" class="nav-link">मदत</a></li>
+                <li><a href="#complaint" class="nav-link">तक्रार</a></li>
+                <li><button class="nav-donate-btn" id="nav-donate-btn" onclick="openDonationModal()">🙏 देणगी</button></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header id="home" class="hero">
+        <div class="hero-bg">
+            <video autoplay loop muted playsinline class="hero-video" poster="images/temple-hero.png">
+                <source src="videos/ranisawargaon-cinematic-cropped.mp4" type="video/mp4">
+            </video>
+            <div class="hero-overlay"></div>
+        </div>
+        <div class="hero-content">
+            <div class="hero-badge animate-on-scroll"><span>॥ श्री ॥</span></div>
+            <h1 class="hero-title animate-on-scroll">
+                <span class="hero-title-marathi">श्री रेणुका देवी मंदिर</span>
+                <span class="hero-title-english">Shri Renuka Devi Temple</span>
+            </h1>
+            <p class="hero-subtitle animate-on-scroll">राणीसावरगाव · गंगाखेड · परभणी · महाराष्ट्र</p>
+            <p class="hero-tagline animate-on-scroll">मराठवाड्याच्या मातीतलं पवित्र तीर्थक्षेत्र</p>
+            <div class="hero-cta-group animate-on-scroll">
+                <a href="#about" class="hero-cta">अधिक जाणून घ्या ↓</a>
+                <button class="hero-cta flower-btn" onclick="offerFlowers()">🌺 पुष्पवृष्टी</button>
+            </div>
+        </div>
+        <div class="hero-scroll-indicator"><div class="scroll-line"></div></div>
+    </header>
+    <!-- TODAY's DARSHAN -->
+    <section id="daily-darshan" class="section darshan-section">
+        <div class="container">
+            <div class="section-header animate-on-scroll">
+                <span class="section-tag">नित्य दर्शन</span>
+                <h2 class="section-title text-gold-gradient">आजचे दर्शन</h2>
+                <div class="section-divider"><span class="divider-icon">🪔</span></div>
+            </div>
+            <div class="darshan-wrapper animate-on-scroll">
+                <div class="darshan-frame premium-card">
+                    <img src="images/renuka-1.jpg" alt="आजचे दर्शन" class="darshan-img">
+                    <div class="darshan-info">
+                        <h3 class="tithi-text">श्री रेणुका माता</h3>
+                        <p class="date-text" id="today-date"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- DONATION COUNTER STRIP -->
+    <div class="donation-strip" id="donation-strip">
+        <div class="container">
+            <div class="donation-strip-inner">
+                <div class="donation-stat">
+                    <span class="dstat-number" id="donor-count">0</span>
+                    <span class="dstat-label">देणगीदार</span>
+                </div>
+                <div class="dstat-divider"></div>
+                <div class="donation-stat">
+                    <span class="dstat-number">₹<span id="donation-total">0</span></span>
+                    <span class="dstat-label">एकूण देणगी</span>
+                </div>
+                <div class="dstat-divider"></div>
+                <div class="donation-stat">
+                    <span class="dstat-number" id="visitor-count">0</span>
+                    <span class="dstat-label">वेबसाइट भेटी</span>
+                </div>
+                <button class="donate-strip-btn" onclick="openDonationModal()">🙏 देणगी द्या</button>
+            </div>
+        </div>
+    </div>
+
+    <section id="about" class="section about-section">
+        <div class="container">
+            <div class="section-header animate-on-scroll">
+                <span class="section-tag">परिचय</span>
+                <h2 class="section-title">मंदिराविषयी</h2>
+                <div class="section-divider"><span class="divider-icon">☙</span></div>
+            </div>
+            <div class="about-grid">
+                <div class="about-image animate-on-scroll">
+                    <img src="images/renuka-devi-mata.webp" alt="Renuka Devi idol" loading="lazy">
+                    <div class="image-frame"></div>
+                </div>
+                <div class="about-content animate-on-scroll">
+                    <h3>राणीसावरगावचे आराध्य दैवत</h3>
+                    <p>महाराष्ट्राच्या परभणी जिल्ह्यातील गंगाखेड तालुक्यात वसलेल्या राणीसावरगाव या ऐतिहासिक गावात श्री रेणुका देवीचे प्राचीन आणि जागृत मंदिर आहे. हे मंदिर गावाच्या आध्यात्मिक जीवनाचे केंद्रबिंदू असून, शतकानुशतके भाविकांच्या श्रद्धेचे प्रतीक राहिले आहे.</p>
+                    <p>रेणुका माता ही महर्षी जमदग्नी यांची पत्नी आणि भगवान परशुरामांची माता म्हणून पुराणात वर्णिलेली आहे. तिची भक्ती, त्याग, आणि पातिव्रत्यधर्म यांमुळे ती देवी म्हणून पूजनीय झाली.</p>
+                    <p>मंदिराचे वास्तूशिल्प मराठवाड्याच्या पारंपरिक शैलीचे उत्तम उदाहरण असून, दगडी कोरीवकाम, मंडप, आणि गर्भगृह यांची रचना भक्तांना आकर्षित करते.</p>
+                    <div class="about-stats">
+                        <div class="stat"><span class="stat-number">500+</span><span class="stat-label">वर्षांचा इतिहास</span></div>
+                        <div class="stat"><span class="stat-number">1000+</span><span class="stat-label">वार्षिक यात्रेकरू</span></div>
+                        <div class="stat"><span class="stat-number">365</span><span class="stat-label">दिवस दर्शन</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ABOUT US SECTION -->
+    <section id="about-us" class="section aboutus-section">
+        <div class="container">
+            <div class="section-header animate-on-scroll">
+                <span class="section-tag">आमच्याबद्दल</span>
+                <h2 class="section-title">मंदिर विश्वस्त मंडळ</h2>
+                <div class="section-divider"><span class="divider-icon">☙</span></div>
+            </div>
+            <div class="aboutus-grid">
+                <div class="trust-card animate-on-scroll">
+                    <div class="trust-icon">🏛️</div>
+                    <h3>मंडळाविषयी</h3>
+                    <p>श्री रेणुका देवी मंदिर विश्वस्त मंडळ हे मंदिराच्या सर्व धार्मिक, सांस्कृतिक आणि आर्थिक व्यवस्थापनाची जबाबदारी सांभाळते. गावातील प्रतिष्ठित व्यक्तींचा समावेश असलेले हे मंडळ मंदिराच्या जतन आणि विकासासाठी कार्यरत आहे.</p>
+                    <div class="trust-badges">
+                        <span class="trust-badge">✅ नोंदणीकृत विश्वस्त संस्था</span>
+                        <span class="trust-badge">📋 वार्षिक लेखापरीक्षण</span>
+                    </div>
+                </div>
+                <div class="trust-card animate-on-scroll">
+                    <div class="trust-icon">📞</div>
+                    <h3>संपर्क माहिती</h3>
+                    <div class="contact-list">
+                        <div class="contact-item"><span>📍</span><p>राणीसावरगाव, ता. गंगाखेड, जि. परभणी – ४३१५१४</p></div>
+                        <div class="contact-item"><span>📞</span><p>मुख्य पुजारी: +91 XXXXX XXXXX</p></div>
+                        <div class="contact-item"><span>📞</span><p>मंडळ अध्यक्ष: +91 XXXXX XXXXX</p></div>
+                        <div class="contact-item"><span>✉️</span><p>renukadevi.ranisawargaon@gmail.com</p></div>
+                    </div>
+                </div>
+                <div class="trust-card trust-card-full animate-on-scroll">
+                    <div class="trust-icon">👥</div>
+                    <h3>मंडळाचे पदाधिकारी</h3>
+                    <div class="committee-grid">
+                        <div class="committee-member"><div class="member-avatar">🙏</div><div><strong>श्री. [अध्यक्ष नाव]</strong><span>अध्यक्ष</span></div></div>
+                        <div class="committee-member"><div class="member-avatar">🙏</div><div><strong>श्री. [सचिव नाव]</strong><span>सचिव</span></div></div>
+                        <div class="committee-member"><div class="member-avatar">🙏</div><div><strong>श्री. [खजिनदार नाव]</strong><span>खजिनदार</span></div></div>
+                        <div class="committee-member"><div class="member-avatar">🙏</div><div><strong>श्री. [पुजारी नाव]</strong><span>मुख्य पुजारी</span></div></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="history" class="section history-section">
+        <div class="container">
+            <div class="section-header animate-on-scroll">
+                <span class="section-tag">इतिहास</span>
+                <h2 class="section-title">इतिहास आणि दंतकथा</h2>
+                <div class="section-divider"><span class="divider-icon">☙</span></div>
+            </div>
+            <div class="history-content">
+                <div class="history-card animate-on-scroll">
+                    <div class="history-card-icon"><span>📜</span></div>
+                    <div class="history-card-content">
+                        <h3>पौराणिक कथा</h3>
+                        <p>पुराणानुसार, रेणुका ही रेणु राजाची कन्या आणि महर्षी जमदग्नी ऋषींची पतिव्रता पत्नी होती. तिच्या तपस्या आणि पातिव्रत्याच्या बळावर तिला दैवी शक्ती प्राप्त झाली होती. परशुरामाने पित्राज्ञा पाळून मातेचा शिरच्छेद केला, पण नंतर वरदानाने तिला पुनर्जीवित केले. तेव्हापासून रेणुका देवी म्हणून पूजनीय झाली.</p>
+                    </div>
+                </div>
+                <div class="history-card animate-on-scroll">
+                    <div class="history-card-icon"><span>🏛️</span></div>
+                    <div class="history-card-content">
+                        <h3>मंदिराची स्थापना</h3>
+                        <p>स्थानिक दंतकथेनुसार, अनेक शतकांपूर्वी एका साधूने या ठिकाणी रेणुका देवीची मूर्ती स्थापित केली. त्या रात्री गावकऱ्यांना स्वप्नात देवीने दर्शन दिले आणि सांगितले की ती या गावाचे रक्षण करेल. त्यानंतर गावकऱ्यांनी एकत्र येऊन भव्य मंदिराची उभारणी केली.</p>
+                    </div>
+                </div>
+                <div class="history-card animate-on-scroll">
+                    <div class="history-card-icon"><span>✨</span></div>
+                    <div class="history-card-content">
+                        <h3>स्थानिक श्रद्धा</h3>
+                        <p>गावातील लोकांचा विश्वास आहे की रेणुका माता सदैव गावावर कृपादृष्टी ठेवते. शेतकरी पेरणीपूर्वी आणि कापणीनंतर मंदिरात जाऊन देवीचे आशीर्वाद घेतात. असे म्हणतात की खऱ्या भक्तीने मागितलेली प्रत्येक मनोकामना देवी पूर्ण करते.</p>
+                    </div>
+                </div>
+                <div class="history-card animate-on-scroll">
+                    <div class="history-card-icon"><span>🌾</span></div>
+                    <div class="history-card-content">
+                        <h3>मराठवाड्याची सांस्कृतिक ओळख</h3>
+                        <p>मराठवाडा हा महाराष्ट्राचा सांस्कृतिक दृष्ट्या समृद्ध प्रदेश आहे. राणीसावरगावचे रेणुका देवी मंदिर हे या प्रदेशाच्या आध्यात्मिक वारशाचा एक महत्त्वाचा भाग आहे.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="visit" class="section visit-section">
+        <div class="container">
+            <div class="section-header animate-on-scroll">
+                <span class="section-tag">दर्शन माहिती</span>
+                <h2 class="section-title">भक्तांसाठी माहिती</h2>
+                <div class="section-divider"><span class="divider-icon">☙</span></div>
+            </div>
+            <div class="visit-grid">
+                <div class="visit-card animate-on-scroll" id="darshan-timings">
+                    <div class="visit-card-header"><h3>⏰ दर्शन वेळ</h3></div>
+                    <div class="visit-card-body">
+                        <div class="timing-row"><span class="timing-label">सकाळचे दर्शन</span><span class="timing-value">सकाळी ६:०० – दुपारी १२:००</span></div>
+                        <div class="timing-row"><span class="timing-label">संध्याकाळचे दर्शन</span><span class="timing-value">संध्या. ४:०० – रात्री ८:३०</span></div>
+                        <div class="timing-row"><span class="timing-label">महाआरती</span><span class="timing-value">सकाळी ७:०० & संध्या. ७:००</span></div>
+                        <div class="timing-row"><span class="timing-label">अभिषेक</span><span class="timing-value">सकाळी ६:३०</span></div>
+                        <p class="timing-note">* सणांच्या दिवशी विशेष वेळापत्रक असते</p>
+                    </div>
+                </div>
+                <div class="visit-card animate-on-scroll" id="festivals-info">
+                    <div class="visit-card-header"><h3>🪔 प्रमुख सण आणि उत्सव</h3></div>
+                    <div class="visit-card-body">
+                        <div class="festival-item"><span class="festival-dot"></span><div><strong>नवरात्रोत्सव</strong><p>नऊ दिवस विशेष पूजा, गरबा, दांडिया आणि भव्य आरती.</p></div></div>
+                        <div class="festival-item"><span class="festival-dot"></span><div><strong>वार्षिक यात्रा (जत्रा)</strong><p>चैत्र पौर्णिमेच्या सुमारास भव्य यात्रा भरते.</p></div></div>
+                        <div class="festival-item"><span class="festival-dot"></span><div><strong>मकर संक्रांती</strong><p>हळदी-कुंकू समारंभ, तिळगूळ वाटप आणि विशेष पूजा.</p></div></div>
+                        <div class="festival-item"><span class="festival-dot"></span><div><strong>दसरा</strong><p>सीमोल्लंघन, शस्त्रपूजा आणि देवीच्या विशेष अलंकार पूजा.</p></div></div>
+                    </div>
+                </div>
+                <div class="visit-card visit-card-full animate-on-scroll" id="travel-directions">
+                    <div class="visit-card-header"><h3>📍 कसे पोहोचायचे?</h3></div>
+                    <div class="visit-card-body directions-grid">
+                        <div class="direction-item"><div class="direction-from">🚌 गंगाखेड वरून</div><p>गंगाखेड बसस्थानक ← राणीसावरगाव (अंदाजे <strong>१५-२० कि.मी.</strong>). एसटी बस किंवा शेअर ऑटो उपलब्ध.</p></div>
+                        <div class="direction-item"><div class="direction-from">🚗 परभणी वरून</div><p>परभणी ← गंगाखेड ← राणीसावरगाव (अंदाजे <strong>६०-७० कि.मी.</strong>). बस किंवा खाजगी वाहनाने प्रवास करता येतो.</p></div>
+                        <div class="direction-item"><div class="direction-from">🚌 नांदेड वरून</div><p>नांदेड ← गंगाखेड मार्गे (अंदाजे <strong>८०-९० कि.मी.</strong>). नियमित बसेस उपलब्ध.</p></div>
+                        <div class="direction-item"><div class="direction-from">🚂 रेल्वेने</div><p>जवळचे रेल्वे स्टेशन: <strong>परभणी जंक्शन</strong> (मुंबई-नागपूर लाईन). तेथून बस/टॅक्सीने राणीसावरगावला पोहोचता येते.</p></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PHOTO LIBRARY -->
+    <section id="gallery" class="section gallery-section">
+        <div class="container">
+            <div class="section-header animate-on-scroll">
+                <span class="section-tag">फोटो लायब्ररी</span>
+                <h2 class="section-title">छायाचित्र संग्रह</h2>
+                <div class="section-divider"><span class="divider-icon">☙</span></div>
+                <p class="section-subtitle">मंदिर, गाव आणि उत्सवांचे क्षण</p>
+            </div>
+            <div class="gallery-tabs animate-on-scroll" id="gallery-tabs">
+                <button class="gtab active" data-cat="all">सर्व</button>
+                <button class="gtab" data-cat="temple">मंदिर</button>
+                <button class="gtab" data-cat="festival">उत्सव</button>
+                <button class="gtab" data-cat="village">गाव</button>
+                <button class="gtab" data-cat="puja">पूजा</button>
+            </div>
+            <div class="gallery-grid" id="gallery-grid">
+                <div class="gallery-item gallery-item-large animate-on-scroll" data-index="0" data-cat="temple">
+                    <img src="images/renuka-mahadvar.png" alt="रेणुका देवी मंदिर महाद्वार" loading="lazy">
+                    <div class="gallery-overlay"><span class="gallery-caption">मंदिराचे महाद्वार</span></div>
+                </div>
+                <div class="gallery-item animate-on-scroll" data-index="1" data-cat="temple">
+                    <img src="images/renuka-1.jpg" alt="देवी दर्शन" loading="lazy">
+                    <div class="gallery-overlay"><span class="gallery-caption">रेणुका मातेचे सुंदर दर्शन</span></div>
+                </div>
+                <div class="gallery-item animate-on-scroll" data-index="2" data-cat="temple">
+                    <img src="images/renuka-entrance.png" alt="प्रवेशद्वार" loading="lazy">
+                    <div class="gallery-overlay"><span class="gallery-caption">मंदिराचे प्रवेशद्वार</span></div>
+                </div>
+                <div class="gallery-item animate-on-scroll" data-index="3" data-cat="temple">
+                    <img src="images/renuka-pov.jpg" alt="मंदिर परिसर" loading="lazy">
+                    <div class="gallery-overlay"><span class="gallery-caption">मंदिर परिसर दृश्य</span></div>
+                </div>
+                <div class="gallery-item animate-on-scroll" data-index="4" data-cat="festival">
+                    <img src="images/festival-celebration.png" alt="उत्सव" loading="lazy">
+                    <div class="gallery-overlay"><span class="gallery-caption">नवरात्रोत्सवाचा उत्साह</span></div>
+                </div>
+                <div class="gallery-item gallery-item-large animate-on-scroll" data-index="5" data-cat="puja">
+                    <img src="images/puja-offerings.png" alt="पूजा" loading="lazy">
+                    <div class="gallery-overlay"><span class="gallery-caption">पूजा अर्चना</span></div>
+                </div>
+            </div>
+        </div>
+        <div class="lightbox" id="lightbox">
+            <button class="lightbox-close" id="lightbox-close">&times;</button>
+            <button class="lightbox-prev" id="lightbox-prev">&#10094;</button>
+            <button class="lightbox-next" id="lightbox-next">&#10095;</button>
+            <div class="lightbox-content">
+                <img src="" alt="" id="lightbox-img">
+                <p class="lightbox-caption" id="lightbox-caption"></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- HELP / FAQ -->
+    <section id="help" class="section help-section">
+        <div class="container">
+            <div class="section-header animate-on-scroll">
+                <span class="section-tag">मदत</span>
+                <h2 class="section-title">वारंवार विचारले जाणारे प्रश्न</h2>
+                <div class="section-divider"><span class="divider-icon">☙</span></div>
+            </div>
+            <div class="faq-container">
+                <div class="faq-item animate-on-scroll"><button class="faq-q">मंदिराचे दर्शन वेळ काय आहे? <span class="faq-ic">+</span></button><div class="faq-a"><p>सकाळी ६:०० ते दुपारी १२:०० आणि संध्याकाळी ४:०० ते रात्री ८:३०. महाआरती सकाळी ७:०० व संध्याकाळी ७:०० वाजता.</p></div></div>
+                <div class="faq-item animate-on-scroll"><button class="faq-q">कोणते विशेष सण साजरे होतात? <span class="faq-ic">+</span></button><div class="faq-a"><p>नवरात्रोत्सव (९ दिवस), चैत्र पौर्णिमेची वार्षिक यात्रा, दसरा, आणि मकर संक्रांती हे प्रमुख सण आहेत.</p></div></div>
+                <div class="faq-item animate-on-scroll"><button class="faq-q">गंगाखेडवरून कसे पोहोचावे? <span class="faq-ic">+</span></button><div class="faq-a"><p>गंगाखेड बसस्थानकावरून राणीसावरगावसाठी एसटी बस किंवा शेअर ऑटो मिळतात. अंतर अंदाजे १५-२० कि.मी. आहे.</p></div></div>
+                <div class="faq-item animate-on-scroll"><button class="faq-q">मंदिरात फोटो काढण्याची परवानगी आहे का? <span class="faq-ic">+</span></button><div class="faq-a"><p>बाहेरील भागात फोटो काढता येतात. गर्भगृहात पुजाऱ्यांची परवानगी घ्यावी.</p></div></div>
+                <div class="faq-item animate-on-scroll"><button class="faq-q">देणगी कशी देता येईल? <span class="faq-ic">+</span></button><div class="faq-a"><p>UPI, बँक ट्रान्सफर किंवा मंदिरात प्रत्यक्ष देणगी देता येते. वरील 'देणगी द्या' बटणावर क्लिक करा.</p></div></div>
+                <div class="faq-item animate-on-scroll"><button class="faq-q">राहण्याची सोय आहे का? <span class="faq-ic">+</span></button><div class="faq-a"><p>मंदिरात धर्मशाळा उपलब्ध आहे. अधिक सुविधांसाठी गंगाखेडमध्ये हॉटेल उपलब्ध आहेत.</p></div></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- COMPLAINT / FEEDBACK -->
+    <section id="complaint" class="section complaint-section">
+        <div class="container">
+            <div class="section-header animate-on-scroll">
+                <span class="section-tag">तक्रार / सूचना</span>
+                <h2 class="section-title">आपला अभिप्राय द्या</h2>
+                <div class="section-divider"><span class="divider-icon">☙</span></div>
+                <p class="section-subtitle">आपल्या सूचना आणि तक्रारी आम्हाला मंदिर सुधारण्यास मदत करतात.</p>
+            </div>
+            <div class="complaint-wrap animate-on-scroll">
+                <div class="complaint-types">
+                    <div class="ctype-card" onclick="selectCType(this,'suggestion')"><span>💡</span><strong>सूचना</strong><p>मंदिर सुधारणेसाठी सूचना</p></div>
+                    <div class="ctype-card" onclick="selectCType(this,'complaint')"><span>📋</span><strong>तक्रार</strong><p>समस्येची नोंद करा</p></div>
+                    <div class="ctype-card" onclick="selectCType(this,'appreciation')"><span>⭐</span><strong>कौतुक</strong><p>सकारात्मक अनुभव</p></div>
+                </div>
+                <form class="complaint-form" id="complaint-form" onsubmit="submitComplaint(event)">
+                    <input type="hidden" id="ctype" value="suggestion">
+                    <div class="form-row">
+                        <div class="form-grp"><label>आपले नाव *</label><input type="text" id="cname" placeholder="पूर्ण नाव" required></div>
+                        <div class="form-grp"><label>मोबाईल नंबर</label><input type="tel" id="cphone" placeholder="+91 XXXXX XXXXX"></div>
+                    </div>
+                    <div class="form-grp">
+                        <label>विषय *</label>
+                        <select id="ccategory" required><option value="">-- विषय निवडा --</option><option>स्वच्छता</option><option>सुविधा</option><option>प्रसाद व्यवस्था</option><option>पूजा व्यवस्था</option><option>पार्किंग</option><option>इतर</option></select>
+                    </div>
+                    <div class="form-grp"><label>आपला संदेश *</label><textarea id="cmessage" rows="4" placeholder="आपली तक्रार / सूचना येथे लिहा..." required></textarea></div>
+                    <button type="submit" class="form-submit-btn">📨 पाठवा</button>
+                </form>
+                <div class="complaint-success" id="csuccess" style="display:none">
+                    <div class="csuccess-icon">✅</div>
+                    <h3>आपली नोंद घेण्यात आली!</h3>
+                    <p>आपल्या अभिप्रायाबद्दल धन्यवाद. आम्ही लवकरच संपर्क साधू.</p>
+                    <button onclick="resetForm()">नवीन अभिप्राय द्या</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section share-section">
+        <div class="container">
+            <div class="share-content animate-on-scroll">
+                <h2>हे पवित्र स्थळ जगाला दाखवा!</h2>
+                <p>आपल्या राणीसावरगावचे नाव जगभर पोहोचवण्यासाठी ही वेबसाइट शेअर करा.</p>
+                <div class="share-buttons" id="share-buttons">
+                    <a href="#" class="share-btn share-whatsapp" id="share-whatsapp">📱 WhatsApp</a>
+                    <a href="#" class="share-btn share-facebook" id="share-facebook">📘 Facebook</a>
+                    <a href="#" class="share-btn share-twitter" id="share-twitter">🐦 X (Twitter)</a>
+                    <button class="share-btn share-copy" id="share-copy">📋 Copy Link</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer" id="footer">
+        <div class="container">
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <span class="footer-logo">🙏</span>
+                    <h3>श्री रेणुका देवी मंदिर</h3>
+                    <p>राणीसावरगाव, ता. गंगाखेड, जि. परभणी, महाराष्ट्र</p>
+                </div>
+                <div class="footer-links">
+                    <a href="#home">मुख्यपृष्ठ</a>
+                    <a href="#about">परिचय</a>
+                    <a href="#about-us">आमच्याबद्दल</a>
+                    <a href="#history">इतिहास</a>
+                    <a href="#visit">दर्शन माहिती</a>
+                    <a href="#gallery">फोटो लायब्ररी</a>
+                    <a href="#help">मदत</a>
+                    <a href="#complaint">तक्रार</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 श्री रेणुका देवी मंदिर, राणीसावरगाव. सर्व हक्क राखीव.</p>
+                <p class="footer-credit">॥ श्री रेणुका देवी प्रसन्न ॥</p>
+            </div>
+        </div>
+    </footer>
+
+    <button class="back-to-top" id="back-to-top" aria-label="Back to top">↑</button>
+
+    <!-- MOBILE BOTTOM NAV -->
+    <nav class="mobile-bottom-nav" id="mobile-bottom-nav">
+        <a href="#home" class="bni">🏠<span>घर</span></a>
+        <a href="#gallery" class="bni">📷<span>गॅलरी</span></a>
+        <button onclick="openDonationModal()" class="bni bni-donate">🙏<span>देणगी</span></button>
+        <a href="#help" class="bni">❓<span>मदत</span></a>
+        <a href="#complaint" class="bni">📋<span>तक्रार</span></a>
+    </nav>
+
+    <!-- DONATION MODAL -->
+    <div class="modal-overlay" id="donation-modal" onclick="closeDonationModal(event)">
+        <div class="modal-box">
+            <button class="modal-close-btn" onclick="closeDonationModal()">✕</button>
+            <div class="modal-head">
+                <span class="modal-diya">🪔</span>
+                <h2>देणगी द्या</h2>
+                <p>आपल्या देणगीमुळे मंदिराचा विकास होतो</p>
+            </div>
+            <div class="donation-amounts">
+                <button class="damount" onclick="setAmount(101)">₹ १०१</button>
+                <button class="damount" onclick="setAmount(251)">₹ २५१</button>
+                <button class="damount" onclick="setAmount(501)">₹ ५०१</button>
+                <button class="damount" onclick="setAmount(1001)">₹ १,०००</button>
+                <button class="damount" onclick="setAmount(2101)">₹ २,१०१</button>
+                <button class="damount" onclick="setAmount(5001)">₹ ५,०००</button>
+            </div>
+            <input type="number" id="custom-amount" class="custom-amt" placeholder="किंवा रक्कम लिहा (₹)">
+            <div class="pay-methods">
+                <div class="pay-method">
+                    <span class="pay-icon">📱</span>
+                    <div><strong>UPI</strong><p id="upi-display">renukadevi@upi</p><button class="copy-upi-btn" onclick="copyUPI()">📋 कॉपी करा</button></div>
+                </div>
+                <div class="pay-method">
+                    <span class="pay-icon">🏦</span>
+                    <div><strong>बँक ट्रान्सफर</strong><p>A/c: XXXX XXXX XXXX</p><p>IFSC: XXXXXXXXXXXX</p></div>
+                </div>
+            </div>
+            <p class="donate-note">* पावतीसाठी मंदिर मंडळाशी संपर्क साधा</p>
+        </div>
+    </div>
+    <!-- AUDIO PLAYER -->
+    <button id="audio-toggle" class="audio-toggle" onclick="toggleAudio()" aria-label="Play Aarti">
+        <span class="audio-icon" id="audio-icon">🔇</span>
+    </button>
+    <audio id="temple-audio" loop src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"></audio>
+
+    <script src="script.js"></script>
+</body>
+</html>
