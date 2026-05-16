@@ -432,7 +432,6 @@ button { border: none; cursor: pointer; background: none; font-family: inherit; 
 @media (max-width: 768px) {
     /* Performance optimizations for mobile */
     body { padding-bottom: 80px; }
-    .hero-video { display: none; }
     .hero-bg { background: url('images/temple-hero.png') center/cover no-repeat; }
     .premium-card, .faq-item, .ctype-card, .pay-method, .darshan-frame, .share-btn { 
         backdrop-filter: none; -webkit-backdrop-filter: none;
