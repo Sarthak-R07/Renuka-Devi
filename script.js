@@ -301,7 +301,20 @@ function setAmount(val) {
     document.querySelectorAll('.damount').forEach(b => b.classList.remove('selected'));
     const inp = document.getElementById('custom-amount');
     if (inp) inp.value = val;
-    event.currentTarget.classList.add('selected');
+    if (event && event.currentTarget) {
+        event.currentTarget.classList.add('selected');
+    }
+    updateUPIUrl(val);
+}
+
+function updateUPIUrl(amount) {
+    const upiLink = document.getElementById('upi-deep-link');
+    if (upiLink && amount > 0) {
+        // Update these with the actual temple UPI details
+        const upiId = "renukadevi@upi";
+        const payeeName = "Shri%20Renuka%20Devi%20Temple";
+        upiLink.href = `upi://pay?pa=${upiId}&pn=${payeeName}&cu=INR&am=${amount}`;
+    }
 }
 
 function copyUPI() {

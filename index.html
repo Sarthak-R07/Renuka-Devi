@@ -438,7 +438,7 @@
                         <button class="damount" onclick="setAmount(2101)">₹ २,१०१</button>
                         <button class="damount" onclick="setAmount(5001)">₹ ५,०००</button>
                     </div>
-                    <input type="number" id="custom-amount" class="custom-amt" placeholder="किंवा स्वतःची रक्कम लिहा (₹)">
+                    <input type="number" id="custom-amount" class="custom-amt" placeholder="किंवा स्वतःची रक्कम लिहा (₹)" oninput="updateUPIUrl(this.value)">
                 </div>
 
                 <!-- Right/Bottom: QR Code & Payment Methods -->
@@ -454,6 +454,11 @@
                             -->
                         </div>
                         <p class="qr-instruction">कोणत्याही UPI ॲपने स्कॅन करा<br>(GPay, PhonePe, Paytm)</p>
+                        
+                        <!-- NEW: Mobile UPI Redirect Button -->
+                        <a href="upi://pay?pa=renukadevi@upi&pn=Shri%20Renuka%20Devi%20Temple" id="upi-deep-link" class="upi-pay-btn">
+                            <span class="upi-btn-icon">⚡</span> थेट UPI ॲपवर पेमेंट करा
+                        </a>
                     </div>
                     
                     <div class="pay-methods">
