@@ -19,7 +19,7 @@
     
     /* Premium Gradients */
     --gold-text-bg: linear-gradient(135deg, #FFF9C4 0%, #FFD54F 40%, #FF8F00 100%);
-    --button-gradient: linear-gradient(135deg, #FF6D00 0%, #D84315 100%);
+    --button-gradient: linear-gradient(135deg, #FF8F00 0%, #E65100 100%);
     --card-border-gradient: linear-gradient(180deg, rgba(255,179,0,0.4) 0%, rgba(255,179,0,0) 100%);
     
     /* Immersive Glows & Shadows */
@@ -46,9 +46,9 @@ body {
     background-color: var(--void-black);
     /* Rich radial background simulating diya/torch light in a dark temple */
     background-image: 
-        radial-gradient(circle at 50% 0%, rgba(74, 14, 14, 0.3) 0%, transparent 40%),
-        radial-gradient(circle at 100% 50%, rgba(255, 179, 0, 0.05) 0%, transparent 50%),
-        radial-gradient(circle at 0% 100%, rgba(255, 87, 34, 0.08) 0%, transparent 50%);
+        radial-gradient(circle at 50% 0%, rgba(50, 10, 10, 0.4) 0%, transparent 50%),
+        radial-gradient(circle at 100% 50%, rgba(255, 179, 0, 0.04) 0%, transparent 60%),
+        radial-gradient(circle at 0% 100%, rgba(255, 87, 34, 0.04) 0%, transparent 60%);
     /* Removed fixed background attachment for performance */
     line-height: 1.8;
     -webkit-font-smoothing: antialiased;
@@ -158,7 +158,7 @@ button { border: none; cursor: pointer; background: none; font-family: inherit; 
 .hero-title-marathi {
     font-family: var(--font-heading); font-size: clamp(3rem, 8vw, 5.5rem);
     font-weight: 800; line-height: 1.1; margin-bottom: 8px;
-    background: linear-gradient(135deg, #FFF9C4 0%, #FFD54F 30%, #FF6D00 70%, #FFF9C4 100%);
+    background: linear-gradient(135deg, #FFF9C4 0%, #FFE082 30%, #FFB300 70%, #FFF9C4 100%);
     background-size: 200% auto;
     -webkit-background-clip: text; -webkit-text-fill-color: transparent;
     animation: shimmer 6s linear infinite; filter: drop-shadow(0 4px 15px rgba(0,0,0,0.9));
@@ -500,7 +500,7 @@ button { border: none; cursor: pointer; background: none; font-family: inherit; 
     .section { padding: 80px 0; }
     .section-title { font-size: 2.4rem; }
     
-    .about-stats { grid-template-columns: 1fr; gap: 30px; }
+    .about-stats { grid-template-columns: repeat(2, 1fr); gap: 20px; text-align: center; }
     .aboutus-grid { grid-template-columns: 1fr; }
     .committee-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; }
     
