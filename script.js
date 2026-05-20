@@ -15,8 +15,45 @@ const lightboxNext = document.getElementById('lightbox-next');
 let currentImageIndex = 0;
 const galleryData = [];
 
+// ========== INTERNATIONALIZATION (i18n) ==========
+let currentLang = localStorage.getItem('site_lang') || 'mr';
+
+function toggleLanguage() {
+    currentLang = currentLang === 'mr' ? 'en' : 'mr';
+    localStorage.setItem('site_lang', currentLang);
+    applyTranslations();
+    updateToggleUI();
+}
+
+function applyTranslations() {
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (typeof translations !== 'undefined' && translations[key] && translations[key][currentLang]) {
+            if (el.tagName.toLowerCase() === 'input' || el.tagName.toLowerCase() === 'textarea') {
+                el.placeholder = translations[key][currentLang];
+            } else {
+                el.innerHTML = translations[key][currentLang];
+            }
+        }
+    });
+    if (currentLang === 'en') {
+        document.title = "Renuka Devi Temple | Ranisawargaon";
+    } else {
+        document.title = "श्री रेणुका देवी मंदिर | राणीसावरगाव";
+    }
+}
+
+function updateToggleUI() {
+    const btn = document.getElementById('lang-toggle-btn');
+    if (btn) {
+        btn.innerHTML = currentLang === 'mr' ? '<span class="lang-icon">🌐</span> ENG' : '<span class="lang-icon">🌐</span> मराठी';
+    }
+}
+
 // ===== INITIALIZE =====
 document.addEventListener('DOMContentLoaded', () => {
+    applyTranslations();
+    updateToggleUI();
     initScrollAnimations();
     initDarshanDate();
     initNavbar();
@@ -340,6 +377,8 @@ function initDarshanDate() {
 }
 
 /* ===== AUDIO TOGGLE ===== */
+
+
 function toggleAudio() {
     const audio = document.getElementById('temple-audio');
     const toggleBtn = document.getElementById('audio-toggle');
