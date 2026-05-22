@@ -129,6 +129,7 @@ h1, h2, h3, h4, h5, h6, .section-title { letter-spacing: 1px; }
 }
 .lang-icon { font-size: 1.1rem; }
 
+.nav-controls { display: flex; align-items: center; gap: 15px; }
 .nav-toggle { display: none; flex-direction: column; gap: 6px; padding: 8px; }
 .hamburger, .hamburger::before, .hamburger::after { display: block; width: 26px; height: 2px; background: var(--divine-gold); transition: all 0.3s ease; position: relative; }
 .hamburger::before, .hamburger::after { content: ''; position: absolute; }
@@ -507,6 +508,9 @@ h1, h2, h3, h4, h5, h6, .section-title { letter-spacing: 1px; }
     .mobile-bottom-nav { display: flex; }
     .nav-donate-btn { display: none; }
     .nav-toggle { display: flex; }
+    .nav-controls { gap: 10px; }
+    .lang-toggle-btn { padding: 5px 10px; font-size: 0.85rem; border-radius: 8px; }
+    .lang-icon { font-size: 0.95rem; }
     .nav-menu { position: fixed; top: var(--nav-height); left: 0; right: 0; background: rgba(5,4,4,0.98); backdrop-filter: blur(25px); flex-direction: column; padding: 30px 20px; gap: 12px; transform: translateY(-150%); transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1); border-bottom: 1px solid rgba(212, 175, 55,0.2); box-shadow: 0 20px 50px rgba(0,0,0,0.9); }
     .nav-menu.active { transform: translateY(0); }
     .nav-link { padding: 16px 20px; width: 100%; text-align: center; font-size: 1.15rem; border-radius: 12px; background: rgba(255,255,255,0.02); }

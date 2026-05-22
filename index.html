@@ -12,8 +12,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css?v=4.3">
-    <script src="translations.js?v=4.3"></script>
+    <link rel="stylesheet" href="styles.css?v=4.4">
+    <script src="translations.js?v=4.4"></script>
 </head>
 <body>
     <nav id="main-nav" class="navbar">
@@ -22,9 +22,12 @@
                 <span class="nav-logo-icon">🙏</span>
                 <span class="nav-logo-text">रेणुका देवी मंदिर</span>
             </a>
-            <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
-                <span class="hamburger"></span>
-            </button>
+            <div class="nav-controls">
+                <button id="lang-toggle-btn" class="lang-toggle-btn" onclick="toggleLanguage()"><span class="lang-icon">🌐</span> ENG</button>
+                <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+                    <span class="hamburger"></span>
+                </button>
+            </div>
             <ul class="nav-menu" id="nav-menu">
                 <li><a href="#home" class="nav-link active" data-i18n="nav-home">मुख्यपृष्ठ</a></li>
                 <li><a href="#about" class="nav-link" data-i18n="nav-about">परिचय</a></li>
@@ -34,8 +37,7 @@
                 <li><a href="#gallery" class="nav-link" data-i18n="nav-gallery">फोटो लायब्ररी</a></li>
                 <li><a href="#help" class="nav-link" data-i18n="nav-help">मदत</a></li>
                 <li><a href="#complaint" class="nav-link" data-i18n="nav-complaint">तक्रार</a></li>
-                <li><button class="nav-donate-btn" id="nav-donate-btn" onclick="openDonationModal()" data-i18n="nav-donate">🙏 देणगी</button></li>
-                <li class="nav-lang-item"><button id="lang-toggle-btn" class="lang-toggle-btn" onclick="toggleLanguage()"><span class="lang-icon">🌐</span> ENG</button></li>
+                <li><button class="nav-donate-btn" id="nav-donate-btn" onclick="document.getElementById('welcome-popup').classList.add('active')" data-i18n="nav-donate">🙏 देणगी</button></li>
             </ul>
         </div>
     </nav>
@@ -555,6 +557,6 @@
     </button>
     <audio id="temple-audio" loop preload="none" src="audio/ritu_tts_audio.mp3"></audio>
 
-    <script src="script.js?v=4.3"></script>
+    <script src="script.js?v=4.4"></script>
 </body>
 </html>
