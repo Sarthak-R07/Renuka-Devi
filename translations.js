@@ -13,7 +13,7 @@ const translations = {
 
     // Hero
     "hero-subtitle": { "mr": "राणीसावरगाव · गंगाखेड · परभणी · महाराष्ट्र", "en": "Ranisawargaon · Gangakhed · Parbhani · Maharashtra" },
-    "hero-tagline": { "mr": "मराठवाड्याच्या मातीतलं पवित्र तीर्थक्षेत्र", "en": "A Sacred Pilgrimage of Marathwada" },
+    "hero-tagline": { "mr": "महाराष्ट्रातील नव्याने घोषित पवित्र 'अर्धपीठ' - मराठवाड्याचे वैभव", "en": "Recently Honored as an 'Ardhapith' - The Sacred Glory of Marathwada" },
     "hero-cta-more": { "mr": "अधिक जाणून घ्या ↓", "en": "Learn More ↓" },
     "hero-cta-flower": { "mr": "🌺 पुष्पवृष्टी", "en": "🌺 Offer Flowers" },
 
@@ -32,7 +32,7 @@ const translations = {
     "sec-about-tag": { "mr": "परिचय", "en": "Introduction" },
     "sec-about-title": { "mr": "मंदिराविषयी", "en": "About the Temple" },
     "about-h3": { "mr": "राणीसावरगावचे आराध्य दैवत", "en": "The Presiding Deity of Ranisawargaon" },
-    "about-p1": { "mr": "महाराष्ट्राच्या परभणी जिल्ह्यातील गंगाखेड तालुक्यात वसलेल्या राणीसावरगाव या ऐतिहासिक गावात श्री रेणुका देवीचे प्राचीन आणि जागृत मंदिर आहे. हे मंदिर गावाच्या आध्यात्मिक जीवनाचे केंद्रबिंदू असून, शतकानुशतके भाविकांच्या श्रद्धेचे प्रतीक राहिले आहे.", "en": "Situated in the historic village of Ranisawargaon in Gangakhed taluka of Maharashtra's Parbhani district, lies the ancient and awakened temple of Shri Renuka Devi. This temple is the spiritual epicenter of the village and has been a symbol of devotion for centuries." },
+    "about-p1": { "mr": "महाराष्ट्राच्या परभणी जिल्ह्यातील गंगाखेड तालुक्यात वसलेल्या राणीसावरगाव या ऐतिहासिक गावात श्री रेणुका देवीचे प्राचीन आणि जागृत मंदिर आहे. हे मंदिर गावाच्या आध्यात्मिक जीवनाचे केंद्रबिंदू असून, शतकानुशतके भाविकांच्या श्रद्धेचे प्रतीक राहिले आहे. अलीकडेच या पवित्र स्थानाला <strong>'अर्धपीठ'</strong> म्हणून सन्मान मिळाला आहे, ज्यामुळे याचे धार्मिक महत्त्व संपूर्ण महाराष्ट्रात अधिकच वाढले आहे.", "en": "Situated in the historic village of Ranisawargaon in Gangakhed taluka of Maharashtra's Parbhani district, lies the ancient and awakened temple of Shri Renuka Devi. This temple is the spiritual epicenter of the village and has been a symbol of devotion for centuries. Recently, this sacred place was officially honored as an <strong>'Ardhapith'</strong> (Half Shakti Peeth), further elevating its spiritual significance across the nation." },
     "about-p2": { "mr": "रेणुका माता ही महर्षी जमदग्नी यांची पत्नी आणि भगवान परशुरामांची माता म्हणून पुराणात वर्णिलेली आहे. तिची भक्ती, त्याग, आणि पातिव्रत्यधर्म यांमुळे ती देवी म्हणून पूजनीय झाली.", "en": "Mata Renuka is described in the Puranas as the devoted wife of Sage Jamadagni and the mother of Lord Parashurama. Through her devotion, sacrifice, and chastity, she became revered as a Goddess." },
     "about-p3": { "mr": "मंदिराचे वास्तूशिल्प मराठवाड्याच्या पारंपरिक शैलीचे उत्तम उदाहरण असून, दगडी कोरीवकाम, मंडप, आणि गर्भगृह यांची रचना भक्तांना आकर्षित करते.", "en": "The temple's architecture is a fine example of the traditional Marathwada style. The exquisite stone carvings, the mandapa, and the sanctum sanctorum deeply captivate the devotees." },
     "stat-1-label": { "mr": "वर्षांचा इतिहास", "en": "Years of History" },
