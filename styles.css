@@ -1,29 +1,31 @@
-/* ===== PREMIUM MYTHOLOGICAL DESIGN TOKENS ===== */
+/* ===== MODERN SECTIONAL DESIGN TOKENS ===== */
 :root {
-    /* Color Grading - Deep, Rich, Sacred */
-    --void-black: #1A0303;      /* Deep Kumkum Maroon */
-    --temple-stone: #240505;    /* Ambient dark red */
-    --obsidian: #360808;        /* Rich Mahogany for cards */
+    /* Section Backgrounds */
+    --bg-white: #FFFFFF;
+    --bg-sandstone: #FDFBF7;
+    --bg-navy: #0B132B;
+    --bg-terracotta: #F4EBD0;
+    --bg-slate: #0A0A0A;
     
-    --divine-gold: #FFD700;     /* Radiant Saffron-Gold Accent */
-    --pale-gold: #FFE55C;       /* Glowing highlights */
-    --burnished-gold: #E6B325;  /* Borders */
+    /* Text Colors */
+    --text-dark: #1F2937;
+    --text-muted-dark: #4B5563;
+    --text-light: #F9FAFB;
+    --text-muted-light: #D1D5DB;
     
-    --sacred-fire: #FF4500;     /* Bright Saffron pop */
-    --deep-crimson: #4A0000;    /* Dark red depth */
-    
-    --parchment: #FFF8DC;       /* Bright Ivory Main text */
-    --dust: #E0C097;            /* Secondary muted text */
+    /* Brand Accents */
+    --divine-gold: #D68F3A;
+    --bright-gold: #FFD700;
+    --burnished-gold: #AA7E31;
     
     /* Premium Gradients */
-    --gold-text-bg: linear-gradient(135deg, #FFE55C 0%, #FFD700 40%, #E6B325 100%);
-    --button-gradient: linear-gradient(135deg, #360808 0%, #1A0303 100%);
-    --card-border-gradient: linear-gradient(180deg, rgba(255,215,0,0.5) 0%, rgba(255,215,0,0) 100%);
+    --gold-text-bg: linear-gradient(135deg, #F3E5AB 0%, #D68F3A 40%, #AA7E31 100%);
+    --button-gradient: linear-gradient(135deg, #15110F 0%, #0A0806 100%);
+    --card-border-gradient: linear-gradient(180deg, rgba(214,143,58,0.4) 0%, rgba(214,143,58,0) 100%);
     
     /* Immersive Glows & Shadows */
-    --glow-gold: 0 0 15px rgba(255, 215, 0, 0.2);
-    --glow-gold-intense: 0 0 25px rgba(255, 215, 0, 0.35);
-    --shadow-abyss: 0 20px 40px rgba(0, 0, 0, 0.95);
+    --shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.05); /* Modern soft shadow for white cards */
+    --shadow-abyss: 0 20px 40px rgba(0, 0, 0, 0.95); /* Deep shadow for dark cards */
     
     /* Typography */
     --font-heading: 'Playfair Display', serif;
@@ -40,10 +42,8 @@
 html { scroll-behavior: smooth; scroll-padding-top: var(--nav-height); }
 body {
     font-family: var(--font-body);
-    color: var(--parchment);
-    background-color: var(--void-black);
-    /* Subtle warm Aarti glow at the top */
-    background-image: radial-gradient(circle at 50% 0%, rgba(255, 140, 0, 0.08) 0%, transparent 60%);
+    color: var(--text-dark); /* Default to dark text for light sections */
+    background-color: var(--bg-white); /* Default body to white */
     line-height: 1.8;
     -webkit-font-smoothing: antialiased;
     overflow-x: hidden;
@@ -191,31 +191,67 @@ h1, h2, h3, h4, h5, h6, .section-title { letter-spacing: 1px; }
 .section-tag {
     display: inline-block; padding: 6px 20px; border-radius: 50px;
     font-size: 0.85rem; font-weight: 700; letter-spacing: 3px; text-transform: uppercase;
-    color: var(--pale-gold); background: rgba(212, 175, 55, 0.05);
-    border: 1px solid rgba(212, 175, 55, 0.2); margin-bottom: 20px;
+    color: var(--divine-gold); background: rgba(214, 143, 58, 0.05);
+    border: 1px solid rgba(214, 143, 58, 0.2); margin-bottom: 20px;
 }
-.section-title { font-family: var(--font-heading); font-size: clamp(2.2rem, 5vw, 3.2rem); color: var(--parchment); font-weight: 700; line-height: 1.2; }
+.section-title { font-family: var(--font-heading); font-size: clamp(2.2rem, 5vw, 3.2rem); color: var(--text-dark); font-weight: 700; line-height: 1.2; }
 .section-divider { margin-top: 20px; display: flex; align-items: center; gap: 10px; opacity: 0.8; }
 .section-divider::before, .section-divider::after { content: ''; width: 60px; height: 1px; background: linear-gradient(90deg, transparent, var(--divine-gold), transparent); }
-.divider-icon { font-size: 1.5rem; color: var(--divine-gold); filter: drop-shadow(0 0 5px rgba(212, 175, 55,0.5)); }
-.section-subtitle { color: var(--dust); margin-top: 16px; font-size: 1.15rem; max-width: 600px; text-align: center; }
+.divider-icon { font-size: 1.5rem; color: var(--divine-gold); filter: drop-shadow(0 0 5px rgba(214, 143, 58,0.5)); }
+.section-subtitle { color: var(--text-muted-dark); margin-top: 16px; font-size: 1.15rem; max-width: 600px; text-align: center; }
 
-/* ===== PREMIUM CARDS (Matte Stone/Obsidian) ===== */
+/* Multi-Section Backgrounds */
+.darshan-section { background-color: var(--bg-white); }
+.about-section { background-color: var(--bg-sandstone); }
+.aboutus-section { background-color: var(--bg-navy); color: var(--text-light); }
+.aboutus-section .section-title { color: var(--text-light); }
+.aboutus-section .section-subtitle { color: var(--text-muted-light); }
+.history-section { background-color: var(--bg-terracotta); }
+.visit-section, .gallery-section { background-color: var(--bg-white); }
+
+/* Contextual Typography Overrides for Light Sections */
+.darshan-section *, .about-section *, .history-section *, .visit-section *, .gallery-section * {
+    /* Base reset for light sections */
+}
+.darshan-section h3, .about-section h3, .history-section h3, .visit-section h3, .gallery-section h3,
+.darshan-section strong, .about-section strong, .history-section strong, .visit-section strong, .gallery-section strong {
+    color: var(--text-dark) !important;
+    text-shadow: none !important;
+}
+.darshan-section p, .about-section p, .history-section p, .visit-section p, .gallery-section p,
+.darshan-section .stat-label, .about-section .stat-label {
+    color: var(--text-muted-dark) !important;
+}
+
+/* Contextual Typography for Dark Sections */
+.aboutus-section h3 { color: var(--bright-gold) !important; }
+.aboutus-section p { color: var(--text-muted-light) !important; }
+
+/* ===== PREMIUM CARDS (Dynamic Light/Dark) ===== */
 .premium-card {
-    background: var(--obsidian);
-    /* Removed glassmorphism blur */
+    background: #FFFFFF;
     border-radius: var(--radius-lg);
-    border: 1px solid rgba(255, 255, 255, 0.02);
-    border-top: 1px solid rgba(255, 255, 255, 0.05); /* Subtle white top light */
-    box-shadow: var(--shadow-abyss);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    box-shadow: var(--shadow-soft);
     transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease;
     overflow: hidden; position: relative;
+    color: var(--text-dark);
+}
+.aboutus-section .premium-card {
+    background: rgba(255, 255, 255, 0.03); /* Translucent over navy */
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: var(--shadow-abyss);
+    color: var(--text-light);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
 }
 .premium-card::before {
     content: ''; position: absolute; inset: 0; opacity: 0; transition: opacity 0.4s;
     background: radial-gradient(circle at 50% 0%, rgba(255, 215, 0, 0.05) 0%, transparent 70%); pointer-events: none;
 }
-.premium-card:hover { transform: translateY(-6px); box-shadow: 0 20px 50px rgba(0,0,0,1); border-top-color: rgba(255, 215, 0, 0.4); }
+.premium-card:hover { transform: translateY(-6px); box-shadow: 0 20px 40px rgba(0,0,0,0.1); border-top-color: rgba(214, 143, 58, 0.4); }
+.aboutus-section .premium-card:hover { box-shadow: 0 20px 50px rgba(0,0,0,0.8); }
 .premium-card:hover::before { opacity: 1; }
 
 /* ===== ABOUT SECTION ===== */
@@ -361,7 +397,7 @@ h1, h2, h3, h4, h5, h6, .section-title { letter-spacing: 1px; }
 .share-twitter:hover { border-color: #1DA1F2; color: #1DA1F2; background: rgba(29,161,242,0.05); }
 
 /* ===== FOOTER ===== */
-.footer { background: var(--void-black); color: var(--dust); padding: 80px 0 30px; position: relative; border-top: 2px solid rgba(212, 175, 55,0.15); }
+.footer { background: var(--bg-slate); color: var(--text-muted-light); padding: 80px 0 30px; position: relative; border-top: 2px solid rgba(214, 143, 58, 0.15); }
 .footer-top { display: flex; justify-content: space-between; align-items: flex-start; padding-bottom: 50px; border-bottom: 1px solid rgba(255,255,255,0.05); flex-wrap: wrap; gap: 40px; }
 .footer-brand { display: flex; flex-direction: column; gap: 12px; max-width: 400px; }
 .footer-logo { font-size: 3rem; filter: drop-shadow(0 0 10px rgba(212, 175, 55,0.4)); }
