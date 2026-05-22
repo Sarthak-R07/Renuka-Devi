@@ -140,8 +140,25 @@ h1, h2, h3, h4, h5, h6, .section-title { letter-spacing: 1px; }
 
 /* ===== HERO SECTION ===== */
 .hero { position: relative; min-height: 100vh; display: flex; align-items: center; justify-content: center; overflow: hidden; }
-.hero-bg { position: absolute; inset: 0; z-index: 0; background: url('images/temple-hero.png') center/cover no-repeat; }
-
+.hero-bg { position: absolute; inset: 0; z-index: 0; background: var(--void-black); overflow: hidden; }
+.hero-slide {
+    position: absolute;
+    inset: -5%;
+    width: 110%;
+    height: 110%;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    opacity: 0;
+    animation: slideCrossfade 10s infinite;
+}
+@keyframes slideCrossfade {
+    0% { opacity: 0; transform: scale(1.1); }
+    10% { opacity: 1; transform: scale(1.05); }
+    20% { opacity: 1; transform: scale(1.0); }
+    30% { opacity: 0; transform: scale(0.95); }
+    100% { opacity: 0; transform: scale(0.95); }
+}
 .hero-overlay {
     position: absolute; inset: 0;
     /* Complex gradient to blend video into the dark mythological theme */
@@ -490,7 +507,7 @@ h1, h2, h3, h4, h5, h6, .section-title { letter-spacing: 1px; }
 @media (max-width: 768px) {
     /* Performance optimizations for mobile */
     body { padding-bottom: 80px; }
-    .hero-bg { background: url('images/temple-hero.png') center/cover no-repeat; }
+
     .premium-card, .faq-item, .ctype-card, .pay-method, .darshan-frame, .share-btn { 
         backdrop-filter: none; -webkit-backdrop-filter: none;
         background: #120C09; /* Solid background instead of glassmorphism */
