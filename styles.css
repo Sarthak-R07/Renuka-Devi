@@ -1,31 +1,34 @@
-/* ===== MODERN SECTIONAL DESIGN TOKENS ===== */
+/* ===== MIDNIGHT INDIGO DESIGN TOKENS ===== */
 :root {
-    /* Section Backgrounds */
-    --bg-white: #FFFFFF;
-    --bg-sandstone: #FDFBF7;
-    --bg-navy: #0B132B;
-    --bg-terracotta: #F4EBD0;
-    --bg-slate: #0A0A0A;
+    /* Color Grading - Midnight Indigo */
+    --bg-void: #050814;          /* Deep Indigo Space */
+    --card-bg: rgba(15, 23, 42, 0.6); /* Frosted Navy */
     
     /* Text Colors */
-    --text-dark: #1F2937;
-    --text-muted-dark: #4B5563;
-    --text-light: #F9FAFB;
-    --text-muted-light: #D1D5DB;
+    --text-primary: #FFFFFF;     /* Crisp White */
+    --text-secondary: #94A3B8;   /* Ice Grey */
     
     /* Brand Accents */
-    --divine-gold: #D68F3A;
-    --bright-gold: #FFD700;
-    --burnished-gold: #AA7E31;
+    --divine-gold: #E5C158;      /* Metallic Pale Gold */
+    --bright-gold: #FCEBB6;      /* Champagne */
+    --burnished-gold: #C09A44;   /* Deep Metallic */
+    
+    /* Legacy Aliases (to prevent breakage) */
+    --parchment: var(--text-primary);
+    --dust: var(--text-secondary);
+    --pale-gold: var(--bright-gold);
+    --void-black: var(--bg-void);
+    --bg-slate: #03050C; /* Darker slate for footer */
     
     /* Premium Gradients */
-    --gold-text-bg: linear-gradient(135deg, #F3E5AB 0%, #D68F3A 40%, #AA7E31 100%);
-    --button-gradient: linear-gradient(135deg, #15110F 0%, #0A0806 100%);
-    --card-border-gradient: linear-gradient(180deg, rgba(214,143,58,0.4) 0%, rgba(214,143,58,0) 100%);
+    --gold-text-bg: linear-gradient(135deg, #FCEBB6 0%, #E5C158 40%, #C09A44 100%);
+    --button-gradient: linear-gradient(135deg, rgba(229,193,88,0.15) 0%, rgba(229,193,88,0.05) 100%);
+    --card-border-gradient: linear-gradient(180deg, rgba(255,255,255,0.08) 0%, rgba(255,255,255,0.01) 100%);
     
     /* Immersive Glows & Shadows */
-    --shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.05); /* Modern soft shadow for white cards */
-    --shadow-abyss: 0 20px 40px rgba(0, 0, 0, 0.95); /* Deep shadow for dark cards */
+    --shadow-abyss: 0 20px 40px rgba(0, 0, 0, 0.8);
+    --glow-gold: 0 0 15px rgba(229, 193, 88, 0.2);
+    --glow-gold-intense: 0 0 25px rgba(229, 193, 88, 0.4);
     
     /* Typography */
     --font-heading: 'Playfair Display', serif;
@@ -42,8 +45,8 @@
 html { scroll-behavior: smooth; scroll-padding-top: var(--nav-height); }
 body {
     font-family: var(--font-body);
-    color: var(--text-dark); /* Default to dark text for light sections */
-    background-color: var(--bg-white); /* Default body to white */
+    color: var(--text-secondary); 
+    background-color: var(--bg-void); 
     line-height: 1.8;
     -webkit-font-smoothing: antialiased;
     overflow-x: hidden;
@@ -194,65 +197,37 @@ h1, h2, h3, h4, h5, h6, .section-title { letter-spacing: 1px; }
     color: var(--divine-gold); background: rgba(214, 143, 58, 0.05);
     border: 1px solid rgba(214, 143, 58, 0.2); margin-bottom: 20px;
 }
-.section-title { font-family: var(--font-heading); font-size: clamp(2.2rem, 5vw, 3.2rem); color: var(--text-dark); font-weight: 700; line-height: 1.2; }
+.section-title { font-family: var(--font-heading); font-size: clamp(2.2rem, 5vw, 3.2rem); color: var(--text-primary); font-weight: 700; line-height: 1.2; }
 .section-divider { margin-top: 20px; display: flex; align-items: center; gap: 10px; opacity: 0.8; }
 .section-divider::before, .section-divider::after { content: ''; width: 60px; height: 1px; background: linear-gradient(90deg, transparent, var(--divine-gold), transparent); }
-.divider-icon { font-size: 1.5rem; color: var(--divine-gold); filter: drop-shadow(0 0 5px rgba(214, 143, 58,0.5)); }
-.section-subtitle { color: var(--text-muted-dark); margin-top: 16px; font-size: 1.15rem; max-width: 600px; text-align: center; }
+.divider-icon { font-size: 1.5rem; color: var(--divine-gold); filter: drop-shadow(0 0 5px rgba(229, 193, 88,0.5)); }
+.section-subtitle { color: var(--text-secondary); margin-top: 16px; font-size: 1.15rem; max-width: 600px; text-align: center; }
 
-/* Multi-Section Backgrounds */
-.darshan-section { background-color: var(--bg-white); }
-.about-section { background-color: var(--bg-sandstone); }
-.aboutus-section { background-color: var(--bg-navy); color: var(--text-light); }
-.aboutus-section .section-title { color: var(--text-light); }
-.aboutus-section .section-subtitle { color: var(--text-muted-light); }
-.history-section { background-color: var(--bg-terracotta); }
-.visit-section, .gallery-section { background-color: var(--bg-white); }
-
-/* Contextual Typography Overrides for Light Sections */
-.darshan-section *, .about-section *, .history-section *, .visit-section *, .gallery-section * {
-    /* Base reset for light sections */
-}
-.darshan-section h3, .about-section h3, .history-section h3, .visit-section h3, .gallery-section h3,
-.darshan-section strong, .about-section strong, .history-section strong, .visit-section strong, .gallery-section strong {
-    color: var(--text-dark) !important;
-    text-shadow: none !important;
-}
-.darshan-section p, .about-section p, .history-section p, .visit-section p, .gallery-section p,
-.darshan-section .stat-label, .about-section .stat-label {
-    color: var(--text-muted-dark) !important;
+/* Global Background Override */
+.darshan-section, .about-section, .aboutus-section, .history-section, .visit-section, .gallery-section {
+    background-color: transparent; /* Rely on body bg */
 }
 
-/* Contextual Typography for Dark Sections */
-.aboutus-section h3 { color: var(--bright-gold) !important; }
-.aboutus-section p { color: var(--text-muted-light) !important; }
-
-/* ===== PREMIUM CARDS (Dynamic Light/Dark) ===== */
+/* ===== PREMIUM CARDS (Frosted Glass) ===== */
 .premium-card {
-    background: #FFFFFF;
+    background: var(--card-bg);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
     border-radius: var(--radius-lg);
-    border: 1px solid rgba(0, 0, 0, 0.05);
-    box-shadow: var(--shadow-soft);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-top: 1px solid rgba(255, 255, 255, 0.12); /* Polished edge */
+    box-shadow: var(--shadow-abyss);
     transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease;
     overflow: hidden; position: relative;
-    color: var(--text-dark);
-}
-.aboutus-section .premium-card {
-    background: rgba(255, 255, 255, 0.03); /* Translucent over navy */
-    border: 1px solid rgba(255, 255, 255, 0.05);
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-    box-shadow: var(--shadow-abyss);
-    color: var(--text-light);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
+    color: var(--text-primary);
 }
 .premium-card::before {
     content: ''; position: absolute; inset: 0; opacity: 0; transition: opacity 0.4s;
-    background: radial-gradient(circle at 50% 0%, rgba(255, 215, 0, 0.05) 0%, transparent 70%); pointer-events: none;
+    background: radial-gradient(circle at 50% 0%, rgba(229, 193, 88, 0.1) 0%, transparent 70%); pointer-events: none;
 }
-.premium-card:hover { transform: translateY(-6px); box-shadow: 0 20px 40px rgba(0,0,0,0.1); border-top-color: rgba(214, 143, 58, 0.4); }
-.aboutus-section .premium-card:hover { box-shadow: 0 20px 50px rgba(0,0,0,0.8); }
+.premium-card:hover { transform: translateY(-6px); box-shadow: 0 25px 50px rgba(0,0,0,0.9); border-top-color: var(--divine-gold); }
 .premium-card:hover::before { opacity: 1; }
+
 
 /* ===== ABOUT SECTION ===== */
 .about-grid { display: grid; grid-template-columns: 1fr 1.1fr; gap: 70px; align-items: center; }
