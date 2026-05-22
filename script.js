@@ -64,10 +64,11 @@ document.addEventListener('DOMContentLoaded', () => {
     initSharing();
     initBackToTop();
     
-    // Auto-open donation modal on page load
+    // Auto-open welcome popup on page load
     setTimeout(() => {
-        if(typeof openDonationModal === 'function') {
-            openDonationModal();
+        const welcomePopup = document.getElementById('welcome-popup');
+        if (welcomePopup) {
+            welcomePopup.classList.add('active');
         }
     }, 1500);
 });

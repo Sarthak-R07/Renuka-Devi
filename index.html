@@ -12,8 +12,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css?v=4.2">
-    <script src="translations.js?v=4.2"></script>
+    <link rel="stylesheet" href="styles.css?v=4.3">
+    <script src="translations.js?v=4.3"></script>
 </head>
 <body>
     <nav id="main-nav" class="navbar">
@@ -438,6 +438,39 @@
         </a>
     </nav>
 
+    <!-- WELCOME POPUP (Small Quick Donate QR) -->
+    <div class="modal-overlay" id="welcome-popup" onclick="if(event.target === this) document.getElementById('welcome-popup').classList.remove('active')">
+        <div class="modal-box small-popup">
+            <button class="modal-close-btn" onclick="document.getElementById('welcome-popup').classList.remove('active')">✕</button>
+            <div class="modal-head" style="margin-bottom: 20px;">
+                <span class="modal-diya" style="font-size: 2rem;">🪔</span>
+                <h3 class="text-gold-gradient" data-i18n="modal-h2" style="font-size: 1.6rem; margin-bottom: 5px;">देणगी अर्पण करा</h3>
+                <p data-i18n="modal-p" style="font-size: 0.9rem;">तुमची देणगी मंदिराच्या विकासासाठी मोलाची आहे</p>
+            </div>
+            <div class="qr-code-box" style="margin-bottom: 15px; padding: 15px;">
+                <div class="qr-placeholder" style="width: 130px; height: 130px; margin: 0 auto 10px;">
+                    <span class="qr-icon">📱</span>
+                    <p data-i18n="qr-text" style="font-size: 0.75rem;">QR कोड इथे येईल</p>
+                </div>
+                <strong style="color: var(--divine-gold); display: block; margin-top: 10px; font-size: 0.95rem;">
+                    <span data-i18n="pay-upi">UPI ID</span>: renukadevi@upi
+                </strong>
+            </div>
+            <div class="pay-method bank-details" style="text-align: left; background: rgba(0,0,0,0.3); padding: 12px; border-radius: 8px;">
+                <strong data-i18n="pay-bank" style="color: var(--divine-gold); font-size: 0.95rem;">बँक खाते तपशील</strong>
+                <p data-i18n="pay-bank-b" style="font-size: 0.85rem; margin: 2px 0;">Bank: बँक ऑफ महाराष्ट्र</p>
+                <p data-i18n="pay-bank-a" style="font-size: 0.85rem; margin: 2px 0;">A/c: ०१२३४५६७८९</p>
+                <p data-i18n="pay-bank-i" style="font-size: 0.85rem; margin: 2px 0;">IFSC: MAHB000000</p>
+            </div>
+            <div class="modal-caution" style="margin-top: 15px; padding: 10px; font-size: 0.8rem; align-items: center;">
+                <span class="caution-icon" style="font-size: 1rem; margin-top: 0;">⚠️</span>
+                <div>
+                    <strong data-i18n="modal-caution-title" style="font-size: 0.85rem; display: inline;">महत्त्वाची सूचना:</strong>
+                    <span data-i18n="modal-caution-text">जलद दर्शन (VIP Darshan) किंवा तत्सम कोणत्याही आमिषाला बळी पडून कुणालाही पैसे देऊ नका. अशी कोणतीही सुविधा नाही.</span>
+                </div>
+            </div>
+        </div>
+    </div>
     <!-- DONATION MODAL (PREMIUM PAYMENT PORTAL) -->
     <div class="modal-overlay" id="donation-modal" onclick="closeDonationModal(event)">
         <div class="modal-box premium-payment-portal">
@@ -522,6 +555,6 @@
     </button>
     <audio id="temple-audio" loop preload="none" src="audio/ritu_tts_audio.mp3"></audio>
 
-    <script src="script.js?v=4.2"></script>
+    <script src="script.js?v=4.3"></script>
 </body>
 </html>
