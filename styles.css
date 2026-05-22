@@ -1,30 +1,28 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400&family=Inter:wght@300;400;500;600&display=swap');
-
 /* ===== PREMIUM MYTHOLOGICAL DESIGN TOKENS ===== */
 :root {
     /* Color Grading - Deep, Rich, Sacred */
-    --void-black: #080605;      /* Deepest background */
-    --temple-stone: #120E0A;    /* Ambient dark brown/charcoal */
-    --obsidian: rgba(18, 14, 10, 0.85); /* Glassmorphic card bg */
+    --void-black: #0A0806;      /* Solid Deep Charcoal */
+    --temple-stone: #120E0C;    /* Matte Dark Slate */
+    --obsidian: #15110F;        /* Solid Obsidian */
     
-    --divine-gold: #D4AF37;     /* Primary accents */
+    --divine-gold: #D68F3A;     /* Singular Saffron-Gold Accent */
     --pale-gold: #F3E5AB;       /* Glowing highlights */
     --burnished-gold: #AA7E31;  /* Borders */
     
     --sacred-fire: #C05621;     /* Saffron/Orange pop */
     --deep-crimson: #3A0A0A;    /* Dark red depth */
     
-    --parchment: #EAE0D5;       /* Main text */
+    --parchment: #E8E3D9;       /* Muted off-white Main text */
     --dust: #BCAAA4;            /* Secondary muted text */
     
     /* Premium Gradients */
-    --gold-text-bg: linear-gradient(135deg, #F3E5AB 0%, #D4AF37 40%, #AA7E31 100%);
-    --button-gradient: linear-gradient(135deg, #1A1410 0%, #050403 100%);
-    --card-border-gradient: linear-gradient(180deg, rgba(212,175,55,0.4) 0%, rgba(212,175,55,0) 100%);
+    --gold-text-bg: linear-gradient(135deg, #F3E5AB 0%, #D68F3A 40%, #AA7E31 100%);
+    --button-gradient: linear-gradient(135deg, #15110F 0%, #0A0806 100%);
+    --card-border-gradient: linear-gradient(180deg, rgba(214,143,58,0.4) 0%, rgba(214,143,58,0) 100%);
     
     /* Immersive Glows & Shadows */
-    --glow-gold: 0 0 20px rgba(212, 175, 55, 0.15);
-    --glow-gold-intense: 0 0 20px rgba(212, 175, 55, 0.3);
+    --glow-gold: 0 0 10px rgba(214, 143, 58, 0.1);
+    --glow-gold-intense: 0 0 15px rgba(214, 143, 58, 0.2);
     --shadow-abyss: 0 20px 40px rgba(0, 0, 0, 0.95);
     
     /* Typography */
@@ -44,12 +42,7 @@ body {
     font-family: var(--font-body);
     color: var(--parchment);
     background-color: var(--void-black);
-    /* Rich radial background simulating diya/torch light in a dark temple */
-    background-image: 
-        radial-gradient(circle at 50% 0%, rgba(50, 10, 10, 0.4) 0%, transparent 50%),
-        radial-gradient(circle at 100% 50%, rgba(212, 175, 55, 0.04) 0%, transparent 60%),
-        radial-gradient(circle at 0% 100%, rgba(255, 87, 34, 0.04) 0%, transparent 60%);
-    /* Removed fixed background attachment for performance */
+    /* Removed radial gradients for pure premium stone aesthetic */
     line-height: 1.8;
     -webkit-font-smoothing: antialiased;
     overflow-x: hidden;
@@ -206,22 +199,22 @@ h1, h2, h3, h4, h5, h6, .section-title { letter-spacing: 1px; }
 .divider-icon { font-size: 1.5rem; color: var(--divine-gold); filter: drop-shadow(0 0 5px rgba(212, 175, 55,0.5)); }
 .section-subtitle { color: var(--dust); margin-top: 16px; font-size: 1.15rem; max-width: 600px; text-align: center; }
 
-/* ===== PREMIUM CARDS (Glassmorphism/Obsidian) ===== */
+/* ===== PREMIUM CARDS (Matte Stone/Obsidian) ===== */
 .premium-card {
     background: var(--obsidian);
-    backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+    /* Removed glassmorphism blur */
     border-radius: var(--radius-lg);
-    border: 1px solid rgba(255, 255, 255, 0.03);
-    border-top: 1px solid rgba(212, 175, 55, 0.2); /* Subtle gold top light */
+    border: 1px solid rgba(255, 255, 255, 0.02);
+    border-top: 1px solid rgba(255, 255, 255, 0.05); /* Subtle white top light */
     box-shadow: var(--shadow-abyss);
     transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease;
     overflow: hidden; position: relative;
 }
 .premium-card::before {
     content: ''; position: absolute; inset: 0; opacity: 0; transition: opacity 0.4s;
-    background: radial-gradient(circle at 50% 0%, rgba(212, 175, 55,0.05) 0%, transparent 70%); pointer-events: none;
+    background: radial-gradient(circle at 50% 0%, rgba(214, 143, 58, 0.03) 0%, transparent 70%); pointer-events: none;
 }
-.premium-card:hover { transform: translateY(-6px); box-shadow: 0 20px 50px rgba(0,0,0,1), 0 0 20px rgba(212, 175, 55,0.05); border-top-color: rgba(212, 175, 55,0.5); }
+.premium-card:hover { transform: translateY(-6px); box-shadow: 0 20px 50px rgba(0,0,0,1); border-top-color: rgba(214, 143, 58, 0.4); }
 .premium-card:hover::before { opacity: 1; }
 
 /* ===== ABOUT SECTION ===== */
@@ -442,7 +435,7 @@ h1, h2, h3, h4, h5, h6, .section-title { letter-spacing: 1px; }
 /* ===== TODAY'S DARSHAN ===== */
 .darshan-section { background: radial-gradient(circle at center, rgba(212, 175, 55, 0.05) 0%, transparent 70%); }
 .darshan-wrapper { display: flex; justify-content: center; }
-.darshan-frame { padding: 16px; background: var(--obsidian); border: 1px solid rgba(212, 175, 55,0.3); border-radius: 8px; max-width: 400px; text-align: center; box-shadow: var(--shadow-abyss), inset 0 0 20px rgba(0,0,0,0.8); position: relative; }
+.darshan-frame { padding: 16px; background: var(--obsidian); border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 8px; max-width: 400px; text-align: center; box-shadow: var(--shadow-abyss); position: relative; }
 .darshan-frame::before { content: ''; position: absolute; inset: 4px; border: 1px solid rgba(212, 175, 55,0.1); border-radius: 4px; pointer-events: none; }
 .darshan-img { width: 100%; aspect-ratio: 4/5; object-fit: cover; border-radius: 4px; border: 2px solid #000; margin-bottom: 16px; filter: contrast(1.1) brightness(0.95); }
 .tithi-text { font-family: var(--font-heading); color: var(--divine-gold); font-size: 1.5rem; margin-bottom: 4px; letter-spacing: 1px; }
