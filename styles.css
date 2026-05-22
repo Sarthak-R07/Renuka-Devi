@@ -1,28 +1,28 @@
 /* ===== PREMIUM MYTHOLOGICAL DESIGN TOKENS ===== */
 :root {
     /* Color Grading - Deep, Rich, Sacred */
-    --void-black: #0A0806;      /* Solid Deep Charcoal */
-    --temple-stone: #120E0C;    /* Matte Dark Slate */
-    --obsidian: #15110F;        /* Solid Obsidian */
+    --void-black: #1A0303;      /* Deep Kumkum Maroon */
+    --temple-stone: #240505;    /* Ambient dark red */
+    --obsidian: #360808;        /* Rich Mahogany for cards */
     
-    --divine-gold: #D68F3A;     /* Singular Saffron-Gold Accent */
-    --pale-gold: #F3E5AB;       /* Glowing highlights */
-    --burnished-gold: #AA7E31;  /* Borders */
+    --divine-gold: #FFD700;     /* Radiant Saffron-Gold Accent */
+    --pale-gold: #FFE55C;       /* Glowing highlights */
+    --burnished-gold: #E6B325;  /* Borders */
     
-    --sacred-fire: #C05621;     /* Saffron/Orange pop */
-    --deep-crimson: #3A0A0A;    /* Dark red depth */
+    --sacred-fire: #FF4500;     /* Bright Saffron pop */
+    --deep-crimson: #4A0000;    /* Dark red depth */
     
-    --parchment: #E8E3D9;       /* Muted off-white Main text */
-    --dust: #BCAAA4;            /* Secondary muted text */
+    --parchment: #FFF8DC;       /* Bright Ivory Main text */
+    --dust: #E0C097;            /* Secondary muted text */
     
     /* Premium Gradients */
-    --gold-text-bg: linear-gradient(135deg, #F3E5AB 0%, #D68F3A 40%, #AA7E31 100%);
-    --button-gradient: linear-gradient(135deg, #15110F 0%, #0A0806 100%);
-    --card-border-gradient: linear-gradient(180deg, rgba(214,143,58,0.4) 0%, rgba(214,143,58,0) 100%);
+    --gold-text-bg: linear-gradient(135deg, #FFE55C 0%, #FFD700 40%, #E6B325 100%);
+    --button-gradient: linear-gradient(135deg, #360808 0%, #1A0303 100%);
+    --card-border-gradient: linear-gradient(180deg, rgba(255,215,0,0.5) 0%, rgba(255,215,0,0) 100%);
     
     /* Immersive Glows & Shadows */
-    --glow-gold: 0 0 10px rgba(214, 143, 58, 0.1);
-    --glow-gold-intense: 0 0 15px rgba(214, 143, 58, 0.2);
+    --glow-gold: 0 0 15px rgba(255, 215, 0, 0.2);
+    --glow-gold-intense: 0 0 25px rgba(255, 215, 0, 0.35);
     --shadow-abyss: 0 20px 40px rgba(0, 0, 0, 0.95);
     
     /* Typography */
@@ -42,7 +42,8 @@ body {
     font-family: var(--font-body);
     color: var(--parchment);
     background-color: var(--void-black);
-    /* Removed radial gradients for pure premium stone aesthetic */
+    /* Subtle warm Aarti glow at the top */
+    background-image: radial-gradient(circle at 50% 0%, rgba(255, 140, 0, 0.08) 0%, transparent 60%);
     line-height: 1.8;
     -webkit-font-smoothing: antialiased;
     overflow-x: hidden;
@@ -212,9 +213,9 @@ h1, h2, h3, h4, h5, h6, .section-title { letter-spacing: 1px; }
 }
 .premium-card::before {
     content: ''; position: absolute; inset: 0; opacity: 0; transition: opacity 0.4s;
-    background: radial-gradient(circle at 50% 0%, rgba(214, 143, 58, 0.03) 0%, transparent 70%); pointer-events: none;
+    background: radial-gradient(circle at 50% 0%, rgba(255, 215, 0, 0.05) 0%, transparent 70%); pointer-events: none;
 }
-.premium-card:hover { transform: translateY(-6px); box-shadow: 0 20px 50px rgba(0,0,0,1); border-top-color: rgba(214, 143, 58, 0.4); }
+.premium-card:hover { transform: translateY(-6px); box-shadow: 0 20px 50px rgba(0,0,0,1); border-top-color: rgba(255, 215, 0, 0.4); }
 .premium-card:hover::before { opacity: 1; }
 
 /* ===== ABOUT SECTION ===== */
