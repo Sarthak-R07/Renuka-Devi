@@ -438,6 +438,9 @@ h1, h2, h3, h4, h5, h6, .section-title { letter-spacing: 1px; }
 
 .modal-footer { margin-top: 30px; text-align: center; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 20px; }
 .donate-note { font-size: 0.9rem; color: rgba(255,255,255,0.4); font-style: italic; }
+.modal-caution { background: rgba(239, 68, 68, 0.1); border: 1px solid rgba(239, 68, 68, 0.3); padding: 12px 16px; border-radius: 8px; color: #FCA5A5; font-size: 0.9rem; display: flex; align-items: flex-start; gap: 10px; text-align: left; margin-top: 10px; }
+.caution-icon { font-size: 1.2rem; }
+.modal-caution strong { color: #FECACA; display: block; margin-bottom: 4px; font-family: var(--font-heading); }
 
 /* ===== BACK TO TOP ===== */
 .back-to-top { position: fixed; bottom: 40px; right: 40px; width: 56px; height: 56px; border-radius: 50%; background: var(--button-gradient); color: var(--divine-gold); font-size: 1.4rem; font-weight: 700; box-shadow: 0 8px 25px rgba(0,0,0,0.8); z-index: 900; opacity: 0; pointer-events: none; transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1); display: flex; align-items: center; justify-content: center; border: 1px solid var(--divine-gold); }

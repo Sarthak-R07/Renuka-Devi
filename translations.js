@@ -195,5 +195,7 @@ const translations = {
     "pay-bank-b": { "mr": "Bank: बँक ऑफ महाराष्ट्र", "en": "Bank: Bank of Maharashtra" },
     "pay-bank-a": { "mr": "A/c: ०१२३४५६७८९", "en": "A/c: 0123456789" },
     "pay-bank-i": { "mr": "IFSC: MAHB000000", "en": "IFSC: MAHB000000" },
-    "modal-note": { "mr": "* देणगी दिल्यानंतर पावतीसाठी कृपया मंदिर मंडळाशी संपर्क साधा.", "en": "* Please contact the temple committee for a receipt after donating." }
+    "modal-note": { "mr": "* देणगी दिल्यानंतर पावतीसाठी कृपया मंदिर मंडळाशी संपर्क साधा.", "en": "* Please contact the temple committee for a receipt after donating." },
+    "modal-caution-title": { "mr": "महत्त्वाची सूचना:", "en": "Important Notice:" },
+    "modal-caution-text": { "mr": "जलद दर्शन (VIP Darshan) किंवा तत्सम कोणत्याही आमिषाला बळी पडून कुणालाही पैसे देऊ नका. अशी कोणतीही सुविधा नाही.", "en": "Do not pay anyone for fast darshan (VIP Darshan) or fall prey to similar scams. No such facility is available." }
 };

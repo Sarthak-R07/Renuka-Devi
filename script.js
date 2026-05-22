@@ -63,6 +63,13 @@ document.addEventListener('DOMContentLoaded', () => {
     initDonationCounter();
     initSharing();
     initBackToTop();
+    
+    // Auto-open donation modal on page load
+    setTimeout(() => {
+        if(typeof openDonationModal === 'function') {
+            openDonationModal();
+        }
+    }, 1500);
 });
 
 // ===== SCROLL ANIMATIONS (IntersectionObserver for performance) =====
