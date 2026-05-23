@@ -555,17 +555,19 @@ h1, h2, h3, h4, h5, h6, .section-title { letter-spacing: 1px; }
     100% { transform: translateX(-50%) rotate(0deg); top: -200px; opacity: 0; }
 }
 
-/* Falling Flower Animation (3D Flutter) */
+/* Falling Flower Animation */
 .falling-flower { 
     position: fixed; pointer-events: none; z-index: 9999; 
-    filter: drop-shadow(0 5px 10px rgba(0,0,0,0.4)); 
-    animation: fall 3D linear forwards; 
+    filter: drop-shadow(0 3px 6px rgba(0,0,0,0.4)); 
+    animation-name: fallFlutter;
+    animation-timing-function: linear;
+    animation-fill-mode: forwards;
 }
-@keyframes fall {
-    0% { transform: translateY(-100px) rotateX(0deg) rotateY(0deg) rotateZ(0deg); opacity: 0; }
+@keyframes fallFlutter {
+    0% { transform: translateY(-100px) rotate(0deg); opacity: 0; }
     5% { opacity: 1; }
     80% { opacity: 1; }
-    100% { transform: translateY(110vh) rotateX(720deg) rotateY(360deg) rotateZ(360deg); opacity: 0; }
+    100% { transform: translateY(110vh) rotate(360deg); opacity: 0; }
 }
 
 /* ===== AUDIO TOGGLE ===== */

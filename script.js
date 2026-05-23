@@ -431,7 +431,7 @@ function offerFlowers() {
     container.style.zIndex = '9999';
     document.body.appendChild(container);
     
-    const flowers = ['🌺', '🌼', '🌸', '🏵️', '🍁', '✨', '🪷', '🍃'];
+    const flowers = ['🌺', '🌼', '🌸', '🏵️', '🌹'];
     
     for (let i = 0; i < 60; i++) {
         setTimeout(() => {
