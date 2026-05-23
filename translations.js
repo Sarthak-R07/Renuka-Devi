@@ -13,9 +13,10 @@ const translations = {
 
     // Hero
     "hero-subtitle": { "mr": "राणीसावरगाव · गंगाखेड · परभणी · महाराष्ट्र", "en": "Ranisawargaon · Gangakhed · Parbhani · Maharashtra" },
-    "hero-tagline": { "mr": "महाराष्ट्रातील नव्याने घोषित पवित्र 'अर्धपीठ' - मराठवाड्याचे वैभव", "en": "Recently Honored as an 'Ardhapith' - The Sacred Glory of Marathwada" },
-    "hero-cta-more": { "mr": "अधिक जाणून घ्या ↓", "en": "Learn More ↓" },
-    "hero-cta-flower": { "mr": "🌺 पुष्पवृष्टी", "en": "🌺 Offer Flowers" },
+    "hero-tagline": { "mr": "मराठवाड्याच्या मातीतलं पवित्र तीर्थक्षेत्र", "en": "The Sacred Pilgrimage of Marathwada" },
+    "hero-cta-more": { "mr": "अधिक जाणून घ्या ↓", "en": "Know More ↓" },
+    "hero-cta-flower": { "mr": "🌺 पुष्पवृष्टी", "en": "🌺 Flower Drop" },
+    "hero-cta-puja": { "mr": "🙏 आभासी पूजा", "en": "🙏 Virtual Puja" },
 
     // Darshan
     "sec-darshan-tag": { "mr": "नित्य दर्शन", "en": "Daily Darshan" },

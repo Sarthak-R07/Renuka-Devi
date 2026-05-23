@@ -502,8 +502,55 @@ h1, h2, h3, h4, h5, h6, .section-title { letter-spacing: 1px; }
 
 /* ===== FLOWER OFFERING ===== */
 .hero-cta-group { display: flex; gap: 16px; flex-wrap: wrap; justify-content: center; z-index: 10; position: relative; }
-.flower-btn { background: rgba(0,0,0,0.5) !important; border: 1px solid var(--divine-gold) !important; color: var(--divine-gold) !important; box-shadow: 0 4px 15px rgba(0,0,0,0.5) !important; }
-.flower-btn:hover { background: rgba(212, 175, 55,0.15) !important; box-shadow: var(--glow-gold) !important; color: #fff !important; }
+.puja-btn { background: rgba(0,0,0,0.5) !important; border: 1px solid var(--divine-gold) !important; color: var(--divine-gold) !important; box-shadow: 0 4px 15px rgba(0,0,0,0.5) !important; }
+.puja-btn:hover { background: rgba(212, 175, 55,0.15) !important; box-shadow: var(--glow-gold) !important; color: #fff !important; }
+.puja-menu-container { position: relative; display: inline-block; }
+.puja-menu {
+    position: absolute; bottom: 120%; left: 50%; transform: translateX(-50%) translateY(20px);
+    background: rgba(18, 12, 9, 0.95); border: 1px solid var(--divine-gold); border-radius: 12px;
+    padding: 10px; display: flex; flex-direction: column; gap: 8px;
+    opacity: 0; visibility: hidden; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5), 0 0 15px rgba(212,175,55,0.2); min-width: 180px; z-index: 100;
+}
+.puja-menu.active { opacity: 1; visibility: visible; transform: translateX(-50%) translateY(0); }
+.puja-menu button {
+    background: transparent; border: none; color: var(--text-light); padding: 10px 15px;
+    font-size: 1.1rem; text-align: left; cursor: pointer; border-radius: 8px; transition: all 0.2s ease;
+}
+.puja-menu button:hover { background: rgba(212, 175, 55, 0.15); color: var(--divine-gold); }
+
+/* Virtual Diya Animation */
+.virtual-diya {
+    position: fixed; font-size: 3rem; z-index: 9999; filter: drop-shadow(0 0 15px rgba(255, 150, 0, 0.8));
+    animation: diyaFlicker 1.5s infinite alternate, diyaRise 5s forwards ease-out; pointer-events: none;
+}
+@keyframes diyaFlicker {
+    0% { transform: scale(1) rotate(-2deg); opacity: 0.8; }
+    50% { transform: scale(1.1) rotate(2deg); opacity: 1; filter: drop-shadow(0 0 25px rgba(255, 200, 0, 1)); }
+    100% { transform: scale(0.95) rotate(-1deg); opacity: 0.9; }
+}
+@keyframes diyaRise {
+    0% { bottom: -50px; opacity: 0; }
+    10% { bottom: 20px; opacity: 1; }
+    80% { bottom: 20px; opacity: 1; }
+    100% { bottom: -50px; opacity: 0; }
+}
+
+/* Virtual Bell Animation */
+.virtual-bell {
+    position: fixed; top: 0; left: 50%; font-size: 5rem; z-index: 9999; transform-origin: top center;
+    filter: drop-shadow(0 5px 15px rgba(212, 175, 55, 0.5)); animation: bellSwing 3s ease-in-out forwards; pointer-events: none;
+}
+@keyframes bellSwing {
+    0% { transform: translateX(-50%) rotate(0deg); top: -100px; opacity: 0; }
+    10% { transform: translateX(-50%) rotate(0deg); top: -10px; opacity: 1; }
+    20% { transform: translateX(-50%) rotate(30deg); top: -10px;}
+    40% { transform: translateX(-50%) rotate(-25deg); top: -10px;}
+    60% { transform: translateX(-50%) rotate(15deg); top: -10px;}
+    80% { transform: translateX(-50%) rotate(-10deg); top: -10px;}
+    90% { transform: translateX(-50%) rotate(0deg); top: -10px; opacity: 1; }
+    100% { transform: translateX(-50%) rotate(0deg); top: -100px; opacity: 0; }
+}
 .falling-flower { position: fixed; pointer-events: none; z-index: 9999; filter: drop-shadow(0 2px 5px rgba(0,0,0,0.5)); animation: fall linear forwards; }
 @keyframes fall {
     0% { transform: translateY(-50px) rotate(0deg); opacity: 1; }

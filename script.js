@@ -449,3 +449,79 @@ function offerFlowers() {
     
     setTimeout(() => container.remove(), 7000);
 }
+
+/* ===== VIRTUAL PUJA MENU ===== */
+function togglePujaMenu() {
+    const menu = document.getElementById('puja-menu');
+    if (menu) {
+        menu.classList.toggle('active');
+    }
+}
+
+// Close puja menu when clicking outside
+document.addEventListener('click', (e) => {
+    const container = document.querySelector('.puja-menu-container');
+    const menu = document.getElementById('puja-menu');
+    if (container && menu && !container.contains(e.target)) {
+        menu.classList.remove('active');
+    }
+});
+
+/* ===== LIGHT DIYA ===== */
+function lightDiya() {
+    const container = document.createElement('div');
+    container.style.position = 'fixed';
+    container.style.inset = '0';
+    container.style.pointerEvents = 'none';
+    container.style.zIndex = '9999';
+    document.body.appendChild(container);
+    
+    for (let i = 0; i < 3; i++) {
+        setTimeout(() => {
+            const diya = document.createElement('div');
+            diya.className = 'virtual-diya';
+            diya.textContent = '🪔';
+            diya.style.left = (20 + (i * 30)) + 'vw';
+            container.appendChild(diya);
+        }, i * 300);
+    }
+    
+    setTimeout(() => container.remove(), 6000);
+}
+
+/* ===== RING BELL ===== */
+function ringBell() {
+    const bell = document.createElement('div');
+    bell.className = 'virtual-bell';
+    bell.textContent = '🔔';
+    document.body.appendChild(bell);
+    
+    try {
+        const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+        const osc1 = audioCtx.createOscillator();
+        const osc2 = audioCtx.createOscillator();
+        const gainNode = audioCtx.createGain();
+        
+        osc1.type = 'sine';
+        osc2.type = 'sine';
+        osc1.frequency.setValueAtTime(500, audioCtx.currentTime);
+        osc2.frequency.setValueAtTime(1000, audioCtx.currentTime);
+        
+        gainNode.gain.setValueAtTime(0, audioCtx.currentTime);
+        gainNode.gain.linearRampToValueAtTime(1, audioCtx.currentTime + 0.05);
+        gainNode.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 2.5);
+        
+        osc1.connect(gainNode);
+        osc2.connect(gainNode);
+        gainNode.connect(audioCtx.destination);
+        
+        osc1.start();
+        osc2.start();
+        osc1.stop(audioCtx.currentTime + 3);
+        osc2.stop(audioCtx.currentTime + 3);
+    } catch(e) {
+        console.log("AudioContext not supported or blocked");
+    }
+    
+    setTimeout(() => bell.remove(), 3000);
+}
