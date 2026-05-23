@@ -52,6 +52,16 @@ function updateToggleUI() {
 
 // ===== INITIALIZE =====
 document.addEventListener('DOMContentLoaded', () => {
+    // Preloader Logic
+    const preloader = document.getElementById('preloader');
+    if (preloader) {
+        setTimeout(() => {
+            preloader.classList.add('hidden');
+            setTimeout(() => preloader.style.display = 'none', 800);
+        }, 1500);
+    }
+
+
     applyTranslations();
     updateToggleUI();
     initScrollAnimations();
@@ -70,7 +80,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (welcomePopup) {
             welcomePopup.classList.add('active');
         }
-    }, 1500);
+    }, 2800);
 });
 
 // ===== SCROLL ANIMATIONS (IntersectionObserver for performance) =====
@@ -92,13 +102,21 @@ function initScrollAnimations() {
     });
 }
 
-// ===== NAVBAR =====
+// ===== NAVBAR & PARALLAX =====
 function initNavbar() {
+    const parallaxBg = document.getElementById('parallax-bg');
+    
     // Scroll effect
     let lastScroll = 0;
     window.addEventListener('scroll', () => {
         const curr = window.scrollY;
         navbar.classList.toggle('scrolled', curr > 50);
+        
+        // Parallax depth effect
+        if (parallaxBg) {
+            parallaxBg.style.transform = `translateY(${curr * 0.4}px)`;
+        }
+
         lastScroll = curr;
         updateActiveNav();
     }, { passive: true });

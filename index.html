@@ -12,8 +12,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css?v=5.1">
-    <script src="translations.js?v=5.1"></script>
+    <link rel="stylesheet" href="styles.css?v=5.2">
+    <script src="translations.js?v=5.2"></script>
 </head>
 <body>
     <nav id="main-nav" class="navbar">
@@ -42,13 +42,16 @@
         </div>
     </nav>
 
+    <!-- PRELOADER -->
+    <div id="preloader" class="preloader">
+        <div class="preloader-content">
+            <div class="preloader-symbol animate-pulse">॥ श्री ॥</div>
+            <div class="preloader-text">रेणुका देवी मंदिर</div>
+        </div>
+    </div>
+
     <header id="home" class="hero">
-        <div class="hero-bg">
-            <div class="hero-slide" style="background-image: url('images/temple-hero.png'); animation-delay: 0s;"></div>
-            <div class="hero-slide" style="background-image: url('images/temple-architecture.png'); animation-delay: 2s;"></div>
-            <div class="hero-slide" style="background-image: url('images/temple-interior.png'); animation-delay: 4s;"></div>
-            <div class="hero-slide" style="background-image: url('images/village-landscape.png'); animation-delay: 6s;"></div>
-            <div class="hero-slide" style="background-image: url('images/festival-celebration.png'); animation-delay: 8s;"></div>
+        <div class="hero-bg" id="parallax-bg">
             <div class="hero-overlay"></div>
         </div>
         <div class="hero-content">
@@ -559,6 +562,6 @@
     </button>
     <audio id="temple-audio" loop preload="none" src="audio/ritu_tts_audio.mp3"></audio>
 
-    <script src="script.js?v=5.1"></script>
+    <script src="script.js?v=5.2"></script>
 </body>
 </html>

@@ -140,24 +140,44 @@ h1, h2, h3, h4, h5, h6, .section-title { letter-spacing: 1px; }
 
 /* ===== HERO SECTION ===== */
 .hero { position: relative; min-height: 100vh; display: flex; align-items: center; justify-content: center; overflow: hidden; }
-.hero-bg { position: absolute; inset: 0; z-index: 0; background: var(--void-black); overflow: hidden; }
-.hero-slide {
-    position: absolute;
-    inset: -5%;
-    width: 110%;
-    height: 110%;
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-    opacity: 0;
-    animation: slideCrossfade 10s infinite;
+/* PRELOADER */
+.preloader {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: #050404;
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 0.8s ease-out, visibility 0.8s ease-out;
 }
-@keyframes slideCrossfade {
-    0% { opacity: 0; transform: scale(1.1); }
-    10% { opacity: 1; transform: scale(1.05); }
-    20% { opacity: 1; transform: scale(1.0); }
-    30% { opacity: 0; transform: scale(0.95); }
-    100% { opacity: 0; transform: scale(0.95); }
+.preloader.hidden {
+    opacity: 0;
+    visibility: hidden;
+}
+.preloader-content {
+    text-align: center;
+    animation: textGlow 2s infinite alternate;
+}
+.preloader-symbol {
+    font-size: 4rem;
+    color: var(--divine-gold);
+    margin-bottom: 20px;
+    text-shadow: 0 0 20px rgba(212, 175, 55, 0.5);
+}
+.preloader-text {
+    font-size: 1.5rem;
+    color: var(--pale-gold);
+    letter-spacing: 4px;
+    font-family: var(--font-heading);
+}
+
+.hero-bg { 
+    position: absolute; 
+    inset: -20% -10% -20% -10%; /* Extra space for parallax */
+    z-index: 0; 
+    background: url('images/temple-hero.png') center/cover no-repeat;
+    /* Will be translated via JS for parallax */
 }
 .hero-overlay {
     position: absolute; inset: 0;
