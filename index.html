@@ -12,10 +12,19 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css?v=5.6">
-    <script src="translations.js?v=5.6"></script>
+    <link rel="stylesheet" href="styles.css?v=5.7">
+    <script src="translations.js?v=5.7"></script>
 </head>
 <body>
+    <!-- PRELOADER -->
+    <div id="preloader" class="preloader">
+        <div class="preloader-content">
+            <div class="preloader-symbol">॥ श्री ॥</div>
+            <div class="preloader-spinner"></div>
+            <p class="preloader-text" data-i18n="nav-title">रेणुका देवी मंदिर</p>
+        </div>
+    </div>
+
     <nav id="main-nav" class="navbar">
         <div class="nav-container">
             <a href="#home" class="nav-logo" id="nav-logo">
@@ -42,13 +51,7 @@
         </div>
     </nav>
 
-    <!-- PRELOADER -->
-    <div id="preloader" class="preloader">
-        <div class="preloader-content">
-            <div class="preloader-symbol animate-pulse">॥ श्री ॥</div>
-            <div class="preloader-text">रेणुका देवी मंदिर</div>
-        </div>
-    </div>
+
 
     <header id="home" class="hero">
         <div class="hero-bg" id="parallax-bg">
@@ -568,6 +571,6 @@
     </button>
     <audio id="temple-audio" loop preload="none" src="audio/ritu_tts_audio.mp3"></audio>
 
-    <script src="script.js?v=5.6"></script>
+    <script src="script.js?v=5.7"></script>
 </body>
 </html>
