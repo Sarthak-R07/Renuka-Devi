@@ -12,8 +12,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css?v=6.0">
-    <script src="translations.js?v=6.0"></script>
+    <link rel="stylesheet" href="styles.css?v=6.1">
+    <script src="translations.js?v=6.1"></script>
 </head>
 <body>
     <!-- PRELOADER -->
@@ -69,7 +69,8 @@
                     <button class="hero-cta puja-btn" onclick="togglePujaMenu()" data-i18n="hero-cta-puja">🙏 आभासी पूजा</button>
                     <div id="puja-menu" class="puja-menu">
                         <button onclick="offerFlowers(); togglePujaMenu()">🌺 पुष्पवृष्टी</button>
-                        <button onclick="lightDiya(); togglePujaMenu()">🪔 दीप प्रज्वलन</button>
+                        <button onclick="startAarti(); togglePujaMenu()">🪔 आरती करा (Aarti)</button>
+                        <button onclick="lightDiya(); togglePujaMenu()">✨ दीप प्रज्वलन</button>
                         <button onclick="ringBell(); togglePujaMenu()">🔔 घंटा नाद</button>
                     </div>
                 </div>
@@ -583,12 +584,25 @@
             </div>
         </div>
     </div>
-    <!-- AUDIO PLAYER -->
+    <div class="virtual-bell-container" id="bell-container"></div>
+    
+    <!-- AARTI THALI -->
+    <div id="aarti-container" class="aarti-container" style="display: none;">
+        <div class="aarti-instructions" id="aarti-instructions">ड्रॅग करून देवीची आरती करा <br>(Drag in circles to perform Aarti)</div>
+        <div id="aarti-thali" class="aarti-thali">
+            <span class="thali-flame">🔥</span>
+            <span class="thali-base">🍽️</span>
+        </div>
+        <button class="aarti-close-btn" onclick="stopAarti()">✕</button>
+    </div>
+
+    <!-- AUDIO ELEMENTS -->
+    <audio id="bell-audio" src="audio/temple-bell.mp3" preload="auto"></audio>
     <button id="audio-toggle" class="audio-toggle" onclick="toggleAudio()" aria-label="Play Aarti">
         <span class="audio-icon" id="audio-icon">🔇</span>
     </button>
     <audio id="temple-audio" loop preload="none" src="audio/ritu_tts_audio.mp3"></audio>
 
-    <script src="script.js?v=6.0"></script>
+    <script src="script.js?v=6.1"></script>
 </body>
 </html>

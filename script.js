@@ -635,3 +635,96 @@ function initMagicTrail() {
 
 // Initialize on load
 document.addEventListener('DOMContentLoaded', initMagicTrail);
+
+// ===== AARTI THALI LOGIC =====
+let aartiOsc;
+let aartiGain;
+let aartiAudioCtx;
+let isAartiActive = false;
+let isDragging = false;
+
+function startAarti() {
+    const container = document.getElementById('aarti-container');
+    const thali = document.getElementById('aarti-thali');
+    
+    container.style.display = 'flex';
+    
+    // Initial position center
+    thali.style.left = '50%';
+    thali.style.top = '50%';
+    
+    isAartiActive = true;
+    
+    // Setup continuous bell sound
+    try {
+        if(!aartiAudioCtx) aartiAudioCtx = new (window.AudioContext || window.webkitAudioContext)();
+        aartiOsc = aartiAudioCtx.createOscillator();
+        aartiGain = aartiAudioCtx.createGain();
+        
+        aartiOsc.type = 'triangle';
+        aartiOsc.frequency.setValueAtTime(800, aartiAudioCtx.currentTime);
+        
+        // Tremolo effect for ringing
+        const lfo = aartiAudioCtx.createOscillator();
+        lfo.type = 'sine';
+        lfo.frequency.value = 15; // fast ring
+        const lfoGain = aartiAudioCtx.createGain();
+        lfoGain.gain.value = 400; // pitch modulation amount
+        lfo.connect(lfoGain);
+        lfoGain.connect(aartiOsc.frequency);
+        lfo.start();
+        
+        aartiGain.gain.setValueAtTime(0, aartiAudioCtx.currentTime); // start silent
+        
+        aartiOsc.connect(aartiGain);
+        aartiGain.connect(aartiAudioCtx.destination);
+        aartiOsc.start();
+    } catch(e) {}
+}
+
+function stopAarti() {
+    document.getElementById('aarti-container').style.display = 'none';
+    isAartiActive = false;
+    isDragging = false;
+    if(aartiGain && aartiAudioCtx) {
+        aartiGain.gain.setTargetAtTime(0, aartiAudioCtx.currentTime, 0.1);
+        setTimeout(() => { if(aartiOsc) { aartiOsc.stop(); aartiOsc = null; } }, 500);
+    }
+}
+
+// Drag logic
+const thali = document.getElementById('aarti-thali');
+if(thali) {
+    function handleMove(clientX, clientY) {
+        if(!isAartiActive || !isDragging) return;
+        
+        // Hide instructions once started
+        const inst = document.getElementById('aarti-instructions');
+        if(inst.style.opacity !== '0') {
+            inst.style.transition = 'opacity 0.5s';
+            inst.style.opacity = '0';
+        }
+
+        thali.style.left = clientX + 'px';
+        thali.style.top = clientY + 'px';
+        
+        // Adjust volume based on movement speed (simple check: if moving, keep volume up)
+        if(aartiGain && aartiAudioCtx) {
+            aartiGain.gain.setTargetAtTime(0.15, aartiAudioCtx.currentTime, 0.1);
+            
+            // Stop sound shortly after if movement stops
+            clearTimeout(thali.moveTimeout);
+            thali.moveTimeout = setTimeout(() => {
+                if(aartiGain) aartiGain.gain.setTargetAtTime(0.01, aartiAudioCtx.currentTime, 0.5);
+            }, 300);
+        }
+    }
+
+    thali.addEventListener('mousedown', (e) => { isDragging = true; });
+    document.addEventListener('mousemove', (e) => { if(isDragging) handleMove(e.clientX, e.clientY); });
+    document.addEventListener('mouseup', () => { isDragging = false; if(aartiGain && aartiAudioCtx) aartiGain.gain.setTargetAtTime(0, aartiAudioCtx.currentTime, 0.2); });
+
+    thali.addEventListener('touchstart', (e) => { isDragging = true; e.preventDefault(); }, {passive: false});
+    document.addEventListener('touchmove', (e) => { if(isDragging && e.touches.length > 0) handleMove(e.touches[0].clientX, e.touches[0].clientY); }, {passive: false});
+    document.addEventListener('touchend', () => { isDragging = false; if(aartiGain && aartiAudioCtx) aartiGain.gain.setTargetAtTime(0, aartiAudioCtx.currentTime, 0.2); });
+}
