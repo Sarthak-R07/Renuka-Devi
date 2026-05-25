@@ -453,6 +453,47 @@ h1, h2, h3, h4, h5, h6, .section-title { letter-spacing: 1px; }
 .bni-donate { color: var(--divine-gold); font-weight: 700; position: relative; }
 .bni-donate .nav-icon { color: var(--divine-gold); width: 26px; height: 26px; }
 
+/* ===== VIRTUAL HUNDI ===== */
+.virtual-hundi-container {
+    height: 150px; position: relative; margin: 20px auto; width: 100px;
+    display: flex; flex-direction: column; align-items: center; justify-content: flex-end;
+}
+.hundi-coin {
+    font-size: 2.5rem; position: absolute; top: -10px; opacity: 0;
+    transform: translateY(-20px) rotate(0deg); transition: none;
+}
+.hundi-coin.drop {
+    animation: coinDropAnim 0.7s cubic-bezier(0.5, 0, 0.2, 1) forwards;
+}
+.hundi-pot {
+    font-size: 5rem; filter: drop-shadow(0 10px 10px rgba(212,175,55,0.2));
+    transform-origin: bottom center; z-index: 2; position: relative; margin-bottom: -15px;
+}
+.hundi-pot.shake {
+    animation: hundiShake 0.4s ease-in-out;
+}
+@keyframes coinDropAnim {
+    0% { opacity: 0; transform: translateY(-50px) scale(0.8) rotate(0deg); }
+    30% { opacity: 1; transform: translateY(-20px) scale(1.3) rotate(180deg); }
+    70% { opacity: 1; transform: translateY(60px) scale(0.9) rotate(360deg); }
+    100% { opacity: 0; transform: translateY(80px) scale(0.5) rotate(400deg); }
+}
+@keyframes hundiShake {
+    0%, 100% { transform: rotate(0deg) scale(1); filter: drop-shadow(0 10px 10px rgba(212,175,55,0.2)); }
+    25% { transform: rotate(-8deg) scale(1.05); filter: drop-shadow(0 0px 40px rgba(212,175,55,0.8)); }
+    50% { transform: rotate(8deg) scale(1.05); filter: drop-shadow(0 0px 40px rgba(212,175,55,0.8)); }
+    75% { transform: rotate(-5deg) scale(1.05); filter: drop-shadow(0 0px 40px rgba(212,175,55,0.8)); }
+}
+.offer-dakshina-btn {
+    background: linear-gradient(135deg, var(--divine-gold), #DAA520); color: #000;
+    border: none; padding: 12px 24px; border-radius: 50px; font-weight: 700;
+    font-size: 1.1rem; cursor: pointer; display: flex; align-items: center; gap: 10px;
+    margin: 0 auto 10px; box-shadow: 0 5px 20px rgba(212,175,55,0.4);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); width: 100%; justify-content: center;
+}
+.offer-dakshina-btn:hover { transform: translateY(-3px) scale(1.05); box-shadow: 0 10px 30px rgba(212,175,55,0.7); }
+.offer-dakshina-btn:active { transform: translateY(1px) scale(0.98); }
+
 /* ===== DONATION MODAL (Ultra Premium) ===== */
 .modal-overlay { display: none; position: fixed; inset: 0; z-index: 3000; background: rgba(0,0,0,0.85); align-items: center; justify-content: center; padding: 20px; backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); }
 .modal-overlay.active { display: flex; }

@@ -533,3 +533,59 @@ function ringBell() {
     
     setTimeout(() => bell.remove(), 4000);
 }
+
+// ===== VIRTUAL HUNDI (DONATION) =====
+function offerDakshina() {
+    const coin = document.getElementById('hundi-coin');
+    const pot = document.getElementById('hundi-pot');
+    const btn = document.getElementById('offer-dakshina-btn');
+    
+    // Quick drop sound (clink)
+    try {
+        const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+        const osc = audioCtx.createOscillator();
+        const gainNode = audioCtx.createGain();
+        osc.type = 'sine';
+        osc.frequency.setValueAtTime(2000, audioCtx.currentTime);
+        osc.frequency.exponentialRampToValueAtTime(800, audioCtx.currentTime + 0.1);
+        gainNode.gain.setValueAtTime(0.15, audioCtx.currentTime);
+        gainNode.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.15);
+        osc.connect(gainNode);
+        gainNode.connect(audioCtx.destination);
+        osc.start();
+        osc.stop(audioCtx.currentTime + 0.15);
+    } catch(e) {}
+    
+    btn.style.pointerEvents = 'none';
+    btn.style.opacity = '0.5';
+    
+    coin.classList.remove('drop');
+    void coin.offsetWidth; // trigger reflow
+    coin.classList.add('drop');
+    
+    setTimeout(() => {
+        pot.classList.add('shake');
+        setTimeout(() => pot.classList.remove('shake'), 400);
+    }, 500); // Coin hits pot
+    
+    setTimeout(() => {
+        document.getElementById('hundi-interaction-step').style.display = 'none';
+        document.getElementById('hundi-details-step').style.display = 'block';
+    }, 1100);
+}
+
+function resetHundi() {
+    const interactionStep = document.getElementById('hundi-interaction-step');
+    const detailsStep = document.getElementById('hundi-details-step');
+    const coin = document.getElementById('hundi-coin');
+    const btn = document.getElementById('offer-dakshina-btn');
+    
+    if(interactionStep) interactionStep.style.display = 'block';
+    if(detailsStep) detailsStep.style.display = 'none';
+    if(coin) coin.classList.remove('drop');
+    
+    if(btn) {
+        btn.style.pointerEvents = 'auto';
+        btn.style.opacity = '1';
+    }
+}
