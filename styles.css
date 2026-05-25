@@ -751,3 +751,20 @@ h1, h2, h3, h4, h5, h6, .section-title { letter-spacing: 1px; }
     .pay-method { flex-direction: column; text-align: center; gap: 12px; }
     .copy-upi-btn { margin-top: 16px; width: 100%; }
 }
+
+/* ===== MAGICAL SPARKLE MOUSE TRAIL ===== */
+.magic-sparkle {
+    position: fixed;
+    pointer-events: none;
+    z-index: 9999;
+    width: 6px;
+    height: 6px;
+    background: radial-gradient(circle, #FFF 0%, var(--divine-gold) 40%, transparent 80%);
+    border-radius: 50%;
+    box-shadow: 0 0 10px var(--divine-gold), 0 0 20px var(--pale-gold);
+    animation: sparkleDrift 1s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}
+@keyframes sparkleDrift {
+    0% { opacity: 1; transform: scale(1) translate(0, 0); }
+    100% { opacity: 0; transform: scale(0) translate(calc(var(--tx, 0) * 20px), calc(var(--ty, 1) * 30px)); }
+}

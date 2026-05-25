@@ -589,3 +589,49 @@ function resetHundi() {
         btn.style.opacity = '1';
     }
 }
+
+// ===== MAGICAL MOUSE TRAIL =====
+function initMagicTrail() {
+    let lastTime = 0;
+    const throttleMs = 40; // Control sparkle density
+
+    function createSparkle(x, y) {
+        const now = Date.now();
+        if (now - lastTime < throttleMs) return;
+        lastTime = now;
+
+        const sparkle = document.createElement('div');
+        sparkle.className = 'magic-sparkle';
+        
+        // Randomize drift direction variables for CSS
+        const tx = (Math.random() - 0.5) * 2;
+        const ty = Math.random() * 1.5 - 0.2;
+        
+        // Slight randomization in position so it's not a rigid line
+        const offsetX = (Math.random() - 0.5) * 10;
+        const offsetY = (Math.random() - 0.5) * 10;
+        
+        sparkle.style.left = (x + offsetX) + 'px';
+        sparkle.style.top = (y + offsetY) + 'px';
+        sparkle.style.setProperty('--tx', tx);
+        sparkle.style.setProperty('--ty', ty);
+        
+        document.body.appendChild(sparkle);
+        
+        // Remove from DOM after animation completes
+        setTimeout(() => sparkle.remove(), 1000);
+    }
+
+    window.addEventListener('mousemove', (e) => {
+        createSparkle(e.clientX, e.clientY);
+    }, {passive: true});
+
+    window.addEventListener('touchmove', (e) => {
+        if(e.touches.length > 0) {
+            createSparkle(e.touches[0].clientX, e.touches[0].clientY);
+        }
+    }, {passive: true});
+}
+
+// Initialize on load
+document.addEventListener('DOMContentLoaded', initMagicTrail);
