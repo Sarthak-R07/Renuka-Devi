@@ -728,3 +728,53 @@ if(thali) {
     document.addEventListener('touchmove', (e) => { if(isDragging && e.touches.length > 0) handleMove(e.touches[0].clientX, e.touches[0].clientY); }, {passive: false});
     document.addEventListener('touchend', () => { isDragging = false; if(aartiGain && aartiAudioCtx) aartiGain.gain.setTargetAtTime(0, aartiAudioCtx.currentTime, 0.2); });
 }
+
+// ===== TEMPLE DRUMS (NAGARA) =====
+function playDrum() {
+    // 1. Visuals
+    const drumContainer = document.createElement('div');
+    drumContainer.className = 'virtual-drum-container';
+    drumContainer.innerHTML = '<div class="drum-emoji">🥁</div><div class="drum-shockwave"></div>';
+    document.body.appendChild(drumContainer);
+    
+    setTimeout(() => drumContainer.remove(), 1000);
+
+    // 2. Audio (Synthesized deep drum beat)
+    try {
+        const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+        
+        // The boom (low frequency sine dropping fast)
+        const osc = audioCtx.createOscillator();
+        const gainNode = audioCtx.createGain();
+        
+        osc.type = 'sine';
+        osc.frequency.setValueAtTime(150, audioCtx.currentTime);
+        osc.frequency.exponentialRampToValueAtTime(40, audioCtx.currentTime + 0.4);
+        
+        gainNode.gain.setValueAtTime(1, audioCtx.currentTime);
+        gainNode.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.8);
+        
+        osc.connect(gainNode);
+        gainNode.connect(audioCtx.destination);
+        
+        osc.start();
+        osc.stop(audioCtx.currentTime + 0.8);
+        
+        // The snap (noise/triangle burst)
+        const snapOsc = audioCtx.createOscillator();
+        const snapGain = audioCtx.createGain();
+        snapOsc.type = 'triangle';
+        snapOsc.frequency.setValueAtTime(120, audioCtx.currentTime);
+        snapGain.gain.setValueAtTime(0.5, audioCtx.currentTime);
+        snapGain.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.1);
+        
+        snapOsc.connect(snapGain);
+        snapGain.connect(audioCtx.destination);
+        
+        snapOsc.start();
+        snapOsc.stop(audioCtx.currentTime + 0.1);
+
+    } catch(e) {
+        console.log("AudioContext not supported");
+    }
+}
