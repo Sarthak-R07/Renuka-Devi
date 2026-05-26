@@ -797,29 +797,29 @@ function initAmbientParticles() {
     const container = document.getElementById('ambient-particles-container');
     if (!container) return;
 
-    const particleCount = 15; // Subtle, not overwhelming
+    const particleCount = 20; // Medium density — visible but not crowded
 
     for (let i = 0; i < particleCount; i++) {
         const p = document.createElement('div');
         p.className = 'ambient-particle';
 
-        // Randomize size (3px to 8px)
-        const size = 3 + Math.random() * 5;
+        // Bigger size (6px to 14px) — clearly visible
+        const size = 6 + Math.random() * 8;
         p.style.width = size + 'px';
         p.style.height = size + 'px';
 
-        // Random starting position
-        p.style.left = Math.random() * 100 + 'vw';
-        p.style.top = Math.random() * 100 + 'vh';
+        // Random starting position spread across viewport
+        p.style.left = (5 + Math.random() * 90) + 'vw';
+        p.style.top = (5 + Math.random() * 90) + 'vh';
 
-        // Randomize animation variables
-        const duration = 8 + Math.random() * 12; // 8s–20s
-        const delay = Math.random() * -20; // Stagger start
-        const dx = (Math.random() - 0.5) * 200;
-        const dy = -(50 + Math.random() * 200); // Float upward
-        const dx2 = (Math.random() - 0.5) * 150;
-        const dy2 = -(100 + Math.random() * 250);
-        const maxOpacity = 0.15 + Math.random() * 0.35; // 0.15–0.5
+        // Calm, slow animation
+        const duration = 10 + Math.random() * 10; // 10s–20s (slow drift)
+        const delay = Math.random() * -15; // Stagger
+        const dx = (Math.random() - 0.5) * 120; // Gentle horizontal sway
+        const dy = -(30 + Math.random() * 100); // Gentle upward float
+        const dx2 = (Math.random() - 0.5) * 80;
+        const dy2 = -(60 + Math.random() * 120);
+        const maxOpacity = 0.4 + Math.random() * 0.3; // 0.4–0.7 — clearly visible
 
         p.style.setProperty('--duration', duration + 's');
         p.style.setProperty('--delay', delay + 's');
