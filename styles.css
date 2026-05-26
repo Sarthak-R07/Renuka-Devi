@@ -42,74 +42,160 @@
     --nav-height: 70px;
 }
 
-/* ===== MAGICAL PRELOADER ===== */
+/* ===== ✨ CINEMATIC PRELOADER ✨ ===== */
 .preloader {
     position: fixed; inset: 0; z-index: 999999;
-    background: radial-gradient(circle at center, #160c09 0%, #050404 100%);
     display: flex; align-items: center; justify-content: center;
-    transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), visibility 0.8s;
     overflow: hidden;
+    transition: opacity 1s ease, visibility 1s;
 }
 .preloader.hidden { opacity: 0; visibility: hidden; pointer-events: none; }
 
-.preloader-bg-particles {
-    position: absolute; width: 200%; height: 200%;
-    background: url('images/temple-architecture.png') center/cover;
-    opacity: 0.05; animation: slowSpin 100s linear infinite;
+/* -- Animated gradient background -- */
+.pl-bg {
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse at 50% 30%, #1a0e08 0%, #0a0503 40%, #000 100%);
+    z-index: 0;
+}
+.pl-bg::before {
+    content: ''; position: absolute; inset: -50%;
+    background: conic-gradient(from 0deg at 50% 50%,
+        transparent 0deg, rgba(229,193,88,0.04) 90deg,
+        transparent 180deg, rgba(229,193,88,0.02) 270deg, transparent 360deg);
+    animation: slowSpin 20s linear infinite;
 }
 
+/* -- Floating sparkle particles -- */
+.pl-sparkles { position: absolute; inset: 0; z-index: 1; overflow: hidden; }
+.pl-sparkle {
+    position: absolute; border-radius: 50%;
+    background: radial-gradient(circle, rgba(255,215,80,0.9) 0%, rgba(229,193,88,0) 70%);
+    animation: sparkleFloat var(--dur) ease-in-out infinite;
+    animation-delay: var(--delay);
+    opacity: 0;
+}
+@keyframes sparkleFloat {
+    0% { opacity: 0; transform: translateY(0) scale(0.3); }
+    20% { opacity: 0.8; }
+    50% { transform: translateY(var(--travel)) scale(1); opacity: 0.6; }
+    80% { opacity: 0.3; }
+    100% { opacity: 0; transform: translateY(calc(var(--travel) * 2)) scale(0.2); }
+}
+
+/* -- Preloader content -- */
 .preloader-content {
-    text-align: center; position: relative; z-index: 2;
+    position: relative; z-index: 2; text-align: center;
     display: flex; flex-direction: column; align-items: center;
 }
 
-.preloader-mandala {
-    position: relative; width: 120px; height: 120px;
+/* -- 4-Ring Mandala -- */
+.pl-mandala {
+    position: relative; width: 160px; height: 160px;
     display: flex; align-items: center; justify-content: center;
-    margin-bottom: 30px;
+    margin-bottom: 40px;
 }
-
-.mandala-ring {
-    position: absolute; inset: 0; border-radius: 50%;
+.pl-ring {
+    position: absolute; border-radius: 50%;
     border: 2px solid transparent;
 }
-.ring-1 {
+.pl-ring-1 {
+    inset: 0;
     border-top: 2px solid var(--divine-gold);
-    border-bottom: 2px solid var(--bright-gold);
-    animation: spin 3s cubic-bezier(0.68, -0.55, 0.265, 1.55) infinite;
-    box-shadow: 0 0 20px rgba(229,193,88,0.2);
+    border-bottom: 2px solid rgba(229,193,88,0.3);
+    animation: spin 4s linear infinite;
+    box-shadow: 0 0 25px rgba(229,193,88,0.15), inset 0 0 25px rgba(229,193,88,0.05);
 }
-.ring-2 {
+.pl-ring-2 {
+    inset: 12px;
     border-left: 2px dashed var(--pale-gold);
-    border-right: 2px dashed var(--burnished-gold);
-    animation: spin 5s linear infinite reverse;
-    transform: scale(0.85);
+    border-right: 2px dashed rgba(229,193,88,0.4);
+    animation: spin 6s linear infinite reverse;
+}
+.pl-ring-3 {
+    inset: 24px;
+    border: 2px dotted rgba(229,193,88,0.3);
+    animation: spin 8s linear infinite;
+}
+.pl-ring-4 {
+    inset: 36px;
+    border-top: 2px solid var(--bright-gold);
+    border-left: 2px solid rgba(229,193,88,0.2);
+    animation: spin 3s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite reverse;
+    box-shadow: 0 0 15px rgba(229,193,88,0.1);
 }
 
-.preloader-icon {
-    font-size: 3.5rem; filter: drop-shadow(0 0 15px rgba(229,193,88,0.8));
-    animation: pulseGlow 2s infinite alternate;
+/* Golden dots on the outermost ring */
+.pl-ring-1::before, .pl-ring-1::after {
+    content: ''; position: absolute; width: 6px; height: 6px;
+    background: var(--divine-gold); border-radius: 50%;
+    box-shadow: 0 0 8px var(--divine-gold);
+}
+.pl-ring-1::before { top: -3px; left: 50%; transform: translateX(-50%); }
+.pl-ring-1::after { bottom: -3px; left: 50%; transform: translateX(-50%); }
+
+/* Lotus center */
+.pl-lotus {
+    font-size: 3.2rem; position: relative; z-index: 5;
+    filter: drop-shadow(0 0 20px rgba(229,193,88,0.9));
+    animation: lotusBreath 3s ease-in-out infinite;
+}
+@keyframes lotusBreath {
+    0%, 100% { transform: scale(1); filter: drop-shadow(0 0 20px rgba(229,193,88,0.7)); }
+    50% { transform: scale(1.15); filter: drop-shadow(0 0 35px rgba(229,193,88,1)); }
 }
 
-.preloader-title {
-    font-family: var(--font-marathi-heading); font-size: 2.2rem;
-    color: var(--divine-gold); letter-spacing: 2px;
-    margin-bottom: 30px;
-    text-shadow: 0 2px 10px rgba(0,0,0,0.8);
-    opacity: 0;
-    animation: fadeUp 1s ease 0.3s forwards;
+/* -- Staggered character reveal -- */
+.pl-title {
+    display: flex; gap: 2px; margin-bottom: 12px;
+    font-family: var(--font-marathi-heading); font-size: 2.5rem;
+}
+.pl-char {
+    display: inline-block; color: var(--divine-gold);
+    opacity: 0; transform: translateY(30px) scale(0.5);
+    animation: charReveal 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+    animation-delay: calc(0.5s + var(--i) * 0.08s);
+    text-shadow: 0 0 15px rgba(229,193,88,0.5);
+}
+@keyframes charReveal {
+    0% { opacity: 0; transform: translateY(30px) scale(0.5); filter: blur(4px); }
+    100% { opacity: 1; transform: translateY(0) scale(1); filter: blur(0); }
 }
 
-.preloader-progress {
-    width: 200px; height: 3px; background: rgba(255,255,255,0.05);
-    border-radius: 4px; overflow: hidden; position: relative;
-    opacity: 0; animation: fadeUp 1s ease 0.8s forwards;
+/* -- Tagline -- */
+.pl-tagline {
+    color: var(--pale-gold); font-size: 0.95rem;
+    font-family: var(--font-marathi-body); letter-spacing: 3px;
+    margin-bottom: 40px; opacity: 0;
+    animation: fadeUp 1s ease 1.5s forwards;
 }
-.preloader-progress-bar {
+
+/* -- Progress bar -- */
+.pl-progress {
+    display: flex; flex-direction: column; align-items: center; gap: 12px;
+    opacity: 0; animation: fadeUp 0.8s ease 1s forwards;
+}
+.pl-progress-track {
+    width: 240px; height: 3px; border-radius: 4px; position: relative;
+    background: rgba(255,255,255,0.06); overflow: hidden;
+}
+.pl-progress-fill {
     position: absolute; left: 0; top: 0; height: 100%; width: 0%;
-    background: linear-gradient(90deg, var(--burnished-gold), var(--bright-gold));
-    box-shadow: 0 0 10px var(--divine-gold);
-    transition: width 1.5s cubic-bezier(0.4, 0, 0.2, 1);
+    background: linear-gradient(90deg, var(--burnished-gold), var(--bright-gold), var(--divine-gold));
+    background-size: 200% 100%;
+    animation: progressShimmer 2s linear infinite;
+    border-radius: 4px;
+    transition: width 2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.pl-progress-glow {
+    position: absolute; top: -4px; width: 12px; height: 12px;
+    background: var(--bright-gold); border-radius: 50%;
+    box-shadow: 0 0 12px var(--divine-gold), 0 0 25px rgba(229,193,88,0.4);
+    left: 0%; transition: left 2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    transform: translateX(-50%);
+}
+.pl-progress-label {
+    font-family: var(--font-marathi-body); font-size: 0.85rem;
+    color: rgba(229,193,88,0.5); letter-spacing: 2px;
 }
 
 @keyframes slowSpin { 100% { transform: rotate(360deg); } }

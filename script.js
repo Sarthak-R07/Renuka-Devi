@@ -52,22 +52,41 @@ function updateToggleUI() {
 
 // ===== INITIALIZE =====
 document.addEventListener('DOMContentLoaded', () => {
-    // Preloader Logic
+    // ===== CINEMATIC PRELOADER =====
     const preloader = document.getElementById('preloader');
     const progressBar = document.getElementById('preloader-progress-bar');
-    
-    if (preloader) {
-        // Trigger progress bar animation
-        if(progressBar) {
-            setTimeout(() => {
-                progressBar.style.width = '100%';
-            }, 100); // Slight delay to ensure CSS transition kicks in
-        }
+    const progressGlow = document.getElementById('pl-progress-glow');
+    const sparklesContainer = document.getElementById('pl-sparkles');
 
+    // Generate floating sparkle particles inside preloader
+    if (sparklesContainer) {
+        for (let i = 0; i < 30; i++) {
+            const s = document.createElement('div');
+            s.className = 'pl-sparkle';
+            const size = 2 + Math.random() * 5;
+            s.style.width = size + 'px';
+            s.style.height = size + 'px';
+            s.style.left = Math.random() * 100 + '%';
+            s.style.top = (60 + Math.random() * 40) + '%';
+            s.style.setProperty('--dur', (5 + Math.random() * 8) + 's');
+            s.style.setProperty('--delay', (Math.random() * -10) + 's');
+            s.style.setProperty('--travel', -(80 + Math.random() * 200) + 'px');
+            sparklesContainer.appendChild(s);
+        }
+    }
+
+    if (preloader) {
+        // Animate progress bar + glow orb
+        setTimeout(() => {
+            if (progressBar) progressBar.style.width = '100%';
+            if (progressGlow) progressGlow.style.left = '100%';
+        }, 200);
+
+        // Dismiss after cinematic sequence completes
         setTimeout(() => {
             preloader.classList.add('hidden');
-            setTimeout(() => preloader.style.display = 'none', 800);
-        }, 1800); // 1.8s gives enough time for the animation and user to read the text
+            setTimeout(() => preloader.style.display = 'none', 1000);
+        }, 2500);
     }
 
 
