@@ -52,22 +52,23 @@ function updateToggleUI() {
 
 // ===== INITIALIZE =====
 document.addEventListener('DOMContentLoaded', () => {
-    // ===== CINEMATIC PRELOADER =====
+    // ===== 🎬 CINEMATIC MYTHOLOGICAL PRELOADER 🎬 =====
     const preloader = document.getElementById('preloader');
     const progressBar = document.getElementById('preloader-progress-bar');
     const progressGlow = document.getElementById('pl-progress-glow');
     const sparklesContainer = document.getElementById('pl-sparkles');
+    const lightburst = document.getElementById('pl-lightburst');
 
-    // Generate floating sparkle particles inside preloader
+    // Generate 30 floating sacred embers
     if (sparklesContainer) {
         for (let i = 0; i < 30; i++) {
             const s = document.createElement('div');
             s.className = 'pl-sparkle';
-            const size = 2 + Math.random() * 5;
+            const size = 2 + Math.random() * 6;
             s.style.width = size + 'px';
             s.style.height = size + 'px';
             s.style.left = Math.random() * 100 + '%';
-            s.style.top = (60 + Math.random() * 40) + '%';
+            s.style.top = (50 + Math.random() * 50) + '%';
             s.style.setProperty('--dur', (5 + Math.random() * 8) + 's');
             s.style.setProperty('--delay', (Math.random() * -10) + 's');
             s.style.setProperty('--travel', -(80 + Math.random() * 200) + 'px');
@@ -76,17 +77,22 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     if (preloader) {
-        // Animate progress bar + glow orb
+        // Stage 1 (0.5s): Trigger golden light burst behind logo
+        setTimeout(() => {
+            if (lightburst) lightburst.classList.add('active');
+        }, 500);
+
+        // Stage 2 (1s): Start progress bar fill
         setTimeout(() => {
             if (progressBar) progressBar.style.width = '100%';
             if (progressGlow) progressGlow.style.left = '100%';
-        }, 200);
+        }, 1000);
 
-        // Dismiss after cinematic sequence completes
+        // Stage 3 (3.5s): Dismiss preloader with slow cinematic fade
         setTimeout(() => {
             preloader.classList.add('hidden');
-            setTimeout(() => preloader.style.display = 'none', 1000);
-        }, 2500);
+            setTimeout(() => preloader.style.display = 'none', 1200);
+        }, 3500);
     }
 
 
