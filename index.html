@@ -12,8 +12,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400&family=Tiro+Devanagari+Hindi:ital@0;1&family=Mukta:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css?v=6.7">
-    <script src="translations.js?v=6.7"></script>
+    <link rel="stylesheet" href="styles.css?v=6.8">
+    <script src="translations.js?v=6.8"></script>
 </head>
 <body>
     <!-- SCROLL PROGRESS BAR -->
@@ -448,6 +448,31 @@
         </div>
     </section>
 
+    <!-- Wave: Share → Location -->
+    <div class="wave-divider wave-gold"><svg viewBox="0 0 1200 80" preserveAspectRatio="none"><path d="M0,50 C300,10 600,70 900,30 C1050,10 1150,50 1200,40 L1200,80 L0,80 Z"></path></svg></div>
+
+    <section id="location" class="section location-section">
+        <div class="container">
+            <div class="section-header animate-on-scroll">
+                <span class="section-tag" data-i18n="sec-loc-tag">पत्ता आणि नकाशा</span>
+                <h2 class="section-title shimmer-text" data-i18n="sec-loc-title">मंदिराचे ठिकाण</h2>
+                <div class="section-divider"><span class="divider-icon">☙</span></div>
+            </div>
+            
+            <div class="location-container animate-on-scroll">
+                <div class="location-details">
+                    <h3 data-i18n="loc-temple-name">श्री रेणुका माता मंदिर</h3>
+                    <p data-i18n="loc-address">राणीसावरगाव, तालुका गंगाखेड, जिल्हा परभणी, महाराष्ट्र - ४३१५३६</p>
+                    <a href="https://www.google.com/maps/search/Renuka+Mata+Temple,+Ranisawargaon,+Gangakhed,+Parbhani" target="_blank" class="btn-primary" data-i18n="loc-nav-btn">Google Maps वर उघडा 🗺️</a>
+                </div>
+                <div class="map-wrapper">
+                    <!-- Google Maps Embed for Ranisawargaon -->
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d30232.07222383803!2d76.782064!3d18.932402!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcf07883279c13b%3A0xcc18bf0a4980a!2sRanisawargaon%2C%20Maharashtra%20431536!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <footer class="footer" id="footer">
         <div class="container">
             <div class="footer-top">
@@ -648,6 +673,6 @@
     </button>
     <audio id="temple-audio" loop preload="none" src="audio/ritu_tts_audio.mp3"></audio>
 
-    <script src="script.js?v=6.7"></script>
+    <script src="script.js?v=6.8"></script>
 </body>
 </html>

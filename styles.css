@@ -513,6 +513,59 @@ h1, h2, h3, h4, h5, h6, .section-title { letter-spacing: 1px; font-family: var(-
 .share-facebook:hover { border-color: #1877F2; color: #1877F2; background: rgba(24,119,242,0.05); }
 .share-twitter:hover { border-color: #1DA1F2; color: #1DA1F2; background: rgba(29,161,242,0.05); }
 
+/* ===== LOCATION SECTION ===== */
+.location-section { padding: 80px 0; }
+.location-container {
+    background: rgba(22, 12, 9, 0.8);
+    border: 1px solid rgba(229, 193, 88, 0.2);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+.location-details {
+    padding: 40px;
+    text-align: center;
+    border-bottom: 1px solid rgba(229, 193, 88, 0.2);
+}
+.location-details h3 {
+    font-family: var(--font-marathi-heading);
+    color: var(--divine-gold);
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+}
+.location-details p {
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+    margin-bottom: 25px;
+    line-height: 1.6;
+}
+.map-wrapper {
+    width: 100%;
+    height: 350px;
+    background: #111;
+}
+.map-wrapper iframe {
+    width: 100%;
+    height: 100%;
+    filter: invert(90%) hue-rotate(180deg) brightness(1.2) contrast(0.85); /* Dark mode map effect */
+}
+@media (min-width: 768px) {
+    .location-container { flex-direction: row; }
+    .location-details {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        text-align: left;
+        border-bottom: none;
+        border-right: 1px solid rgba(229, 193, 88, 0.2);
+    }
+    .map-wrapper { flex: 2; height: 450px; }
+}
+
 /* ===== FOOTER ===== */
 .footer { background: var(--bg-slate); color: var(--text-muted-light); padding: 80px 0 30px; position: relative; border-top: 2px solid rgba(214, 143, 58, 0.15); }
 .footer-top { display: flex; justify-content: space-between; align-items: flex-start; padding-bottom: 50px; border-bottom: 1px solid rgba(255,255,255,0.05); flex-wrap: wrap; gap: 40px; }
