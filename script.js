@@ -833,8 +833,37 @@ function initAmbientParticles() {
     }
 }
 
+// ===== DAILY SUVICHAR =====
+const suvicharQuotes = [
+    { text: "ज्यांच्या हृदयात भगवंत आहे, त्यांना जगात कशाचीही कमतरता भासत नाही.", author: "- संत तुकाराम" },
+    { text: "भक्ती हाच खरा मार्ग आहे, जो थेट देवापर्यंत पोहोचतो.", author: "- संत ज्ञानेश्वर" },
+    { text: "रेणुका मातेच्या चरणी लीन व्हा, सर्व संकटे दूर होतील.", author: "- आध्यात्मिक विचार" },
+    { text: "कर्मावर विश्वास ठेवा, फळ देण्याची जबाबदारी ईश्वराची आहे.", author: "- श्रीमद्भगवद्गीता" },
+    { text: "अहंकार सोडला की, ईश्वराचे दर्शन होते.", author: "- संत एकनाथ" },
+    { text: "मनातील श्रद्धा आणि भक्ती हाच खरा ईश्वरी प्रसाद आहे.", author: "- संत रामदास" },
+    { text: "सत्कर्म हेच जीवनाचे खरे सार्थक आहे.", author: "- संत नामदेव" }
+];
+
+function initSuvichar() {
+    const quoteText = document.getElementById('daily-quote-text');
+    const quoteAuthor = document.getElementById('daily-quote-author');
+    if(!quoteText || !quoteAuthor) return;
+    
+    // Pick quote based on day of year so it changes daily
+    const now = new Date();
+    const start = new Date(now.getFullYear(), 0, 0);
+    const diff = (now - start) + ((start.getTimezoneOffset() - now.getTimezoneOffset()) * 60 * 1000);
+    const oneDay = 1000 * 60 * 60 * 24;
+    const dayOfYear = Math.floor(diff / oneDay);
+    
+    const quoteIndex = dayOfYear % suvicharQuotes.length;
+    quoteText.textContent = `"${suvicharQuotes[quoteIndex].text}"`;
+    quoteAuthor.textContent = suvicharQuotes[quoteIndex].author;
+}
+
 // Initialize both on DOM ready
 document.addEventListener('DOMContentLoaded', () => {
     initScrollProgress();
     initAmbientParticles();
+    initSuvichar();
 });

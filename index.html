@@ -12,8 +12,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400&family=Tiro+Devanagari+Hindi:ital@0;1&family=Mukta:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css?v=6.6">
-    <script src="translations.js?v=6.6"></script>
+    <link rel="stylesheet" href="styles.css?v=6.7">
+    <script src="translations.js?v=6.7"></script>
 </head>
 <body>
     <!-- SCROLL PROGRESS BAR -->
@@ -130,8 +130,23 @@
         </div>
     </div>
 
-    <!-- Wave: Donation Strip → About -->
+    <!-- Wave: Donation Strip → Suvichar -->
     <div class="wave-divider wave-gold"><svg viewBox="0 0 1200 80" preserveAspectRatio="none"><path d="M0,60 C200,20 400,80 600,40 C800,0 1000,60 1200,30 L1200,80 L0,80 Z"></path></svg></div>
+
+    <!-- DAILY SUVICHAR -->
+    <section id="suvichar" class="section suvichar-section">
+        <div class="container">
+            <div class="suvichar-card animate-on-scroll">
+                <div class="suvichar-icon">📜</div>
+                <h3 class="suvichar-title">आजचा सुविचार</h3>
+                <p class="suvichar-text" id="daily-quote-text"></p>
+                <p class="suvichar-author" id="daily-quote-author"></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Wave: Suvichar → About -->
+    <div class="wave-divider"><svg viewBox="0 0 1200 80" preserveAspectRatio="none"><path d="M0,30 C150,80 350,0 550,60 C750,80 950,10 1200,50 L1200,80 L0,80 Z"></path></svg></div>
 
     <section id="about" class="section about-section">
         <div class="container">
@@ -633,6 +648,6 @@
     </button>
     <audio id="temple-audio" loop preload="none" src="audio/ritu_tts_audio.mp3"></audio>
 
-    <script src="script.js?v=6.6"></script>
+    <script src="script.js?v=6.7"></script>
 </body>
 </html>
