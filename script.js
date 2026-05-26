@@ -778,3 +778,63 @@ function playDrum() {
         console.log("AudioContext not supported");
     }
 }
+
+// ===== SCROLL PROGRESS BAR =====
+function initScrollProgress() {
+    const progressBar = document.getElementById('scroll-progress-bar');
+    if (!progressBar) return;
+
+    window.addEventListener('scroll', () => {
+        const scrollTop = window.scrollY;
+        const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+        const scrollPercent = (scrollTop / docHeight) * 100;
+        progressBar.style.width = scrollPercent + '%';
+    }, { passive: true });
+}
+
+// ===== FLOATING AMBIENT PARTICLES =====
+function initAmbientParticles() {
+    const container = document.getElementById('ambient-particles-container');
+    if (!container) return;
+
+    const particleCount = 15; // Subtle, not overwhelming
+
+    for (let i = 0; i < particleCount; i++) {
+        const p = document.createElement('div');
+        p.className = 'ambient-particle';
+
+        // Randomize size (3px to 8px)
+        const size = 3 + Math.random() * 5;
+        p.style.width = size + 'px';
+        p.style.height = size + 'px';
+
+        // Random starting position
+        p.style.left = Math.random() * 100 + 'vw';
+        p.style.top = Math.random() * 100 + 'vh';
+
+        // Randomize animation variables
+        const duration = 8 + Math.random() * 12; // 8s–20s
+        const delay = Math.random() * -20; // Stagger start
+        const dx = (Math.random() - 0.5) * 200;
+        const dy = -(50 + Math.random() * 200); // Float upward
+        const dx2 = (Math.random() - 0.5) * 150;
+        const dy2 = -(100 + Math.random() * 250);
+        const maxOpacity = 0.15 + Math.random() * 0.35; // 0.15–0.5
+
+        p.style.setProperty('--duration', duration + 's');
+        p.style.setProperty('--delay', delay + 's');
+        p.style.setProperty('--dx', dx + 'px');
+        p.style.setProperty('--dy', dy + 'px');
+        p.style.setProperty('--dx2', dx2 + 'px');
+        p.style.setProperty('--dy2', dy2 + 'px');
+        p.style.setProperty('--max-opacity', maxOpacity);
+
+        container.appendChild(p);
+    }
+}
+
+// Initialize both on DOM ready
+document.addEventListener('DOMContentLoaded', () => {
+    initScrollProgress();
+    initAmbientParticles();
+});
