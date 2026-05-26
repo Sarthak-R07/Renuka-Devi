@@ -54,11 +54,20 @@ function updateToggleUI() {
 document.addEventListener('DOMContentLoaded', () => {
     // Preloader Logic
     const preloader = document.getElementById('preloader');
+    const progressBar = document.getElementById('preloader-progress-bar');
+    
     if (preloader) {
+        // Trigger progress bar animation
+        if(progressBar) {
+            setTimeout(() => {
+                progressBar.style.width = '100%';
+            }, 100); // Slight delay to ensure CSS transition kicks in
+        }
+
         setTimeout(() => {
             preloader.classList.add('hidden');
             setTimeout(() => preloader.style.display = 'none', 800);
-        }, 1500);
+        }, 1800); // 1.8s gives enough time for the animation and user to read the text
     }
 
 
