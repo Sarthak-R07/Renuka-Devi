@@ -12,8 +12,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400&family=Tiro+Devanagari+Hindi:ital@0;1&family=Mukta:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css?v=8.2">
-    <script src="translations.js?v=8.2"></script>
+    <link rel="stylesheet" href="styles.css?v=8.4">
+    <script src="translations.js?v=8.4"></script>
 </head>
 <body>
     <!-- SCROLL PROGRESS BAR -->
@@ -855,13 +855,7 @@
                     <h3 class="step-title" data-i18n="step-2-title"><span class="step-num">२</span> पेमेंट करा</h3>
                     
                     <div class="qr-code-box">
-                        <div class="qr-placeholder" id="qr-placeholder">
-                            <span class="qr-icon">📱</span>
-                            <p data-i18n="qr-text">QR कोड इथे येईल</p>
-                            <!-- User will replace this with their actual QR Code Image:
-                            <img src="images/my-qr-code.png" alt="Donate QR Code" class="qr-image">
-                            -->
-                        </div>
+                        <img src="images/donation-qr.png" alt="Donate QR Code" class="qr-image" style="width: 100%; max-width: 250px; border-radius: 12px; margin: 0 auto 15px auto; display: block; box-shadow: 0 4px 15px rgba(0,0,0,0.3); border: 2px solid var(--divine-gold);">
                         <p class="qr-instruction" data-i18n="qr-inst">कोणत्याही UPI ॲपने स्कॅन करा<br>(GPay, PhonePe, Paytm)</p>
                         
                         <!-- NEW: Mobile UPI Redirect Button -->
@@ -967,6 +961,6 @@
     </button>
     <audio id="temple-audio" loop preload="none" src="audio/ritu_tts_audio.mp3"></audio>
 
-    <script src="script.js?v=8.3"></script>
+    <script src="script.js?v=8.4"></script>
 </body>
 </html>
