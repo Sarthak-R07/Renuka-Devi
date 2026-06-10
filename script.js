@@ -510,6 +510,42 @@ function offerFlowers() {
     setTimeout(() => container.remove(), 10000);
 }
 
+// ===== FESTIVAL COUNTDOWN LOGIC =====
+function initFestivalCountdown() {
+    // Set target date to next Navratri (e.g., Oct 10, 2026)
+    const targetDate = new Date('2026-10-10T00:00:00').getTime();
+    
+    const daysEl = document.getElementById('cd-days');
+    const hoursEl = document.getElementById('cd-hours');
+    const minutesEl = document.getElementById('cd-minutes');
+    const secondsEl = document.getElementById('cd-seconds');
+    
+    if (!daysEl) return; // Feature not present
+    
+    function updateCountdown() {
+        const now = new Date().getTime();
+        const distance = targetDate - now;
+        
+        if (distance < 0) {
+            document.getElementById('countdown-timer').innerHTML = '<h3 style="color:var(--divine-gold); padding: 10px;">उत्सव सुरू झाला आहे! 🙏</h3>';
+            return;
+        }
+        
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+        
+        daysEl.innerText = days.toString().padStart(2, '0');
+        hoursEl.innerText = hours.toString().padStart(2, '0');
+        minutesEl.innerText = minutes.toString().padStart(2, '0');
+        secondsEl.innerText = seconds.toString().padStart(2, '0');
+    }
+    
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+}
+
 // ===== TEMPLE STATUS LOGIC =====
 function initTempleStatus() {
     const badge = document.getElementById('temple-status');
