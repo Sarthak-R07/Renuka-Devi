@@ -12,8 +12,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400&family=Tiro+Devanagari+Hindi:ital@0;1&family=Mukta:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css?v=8.4">
-    <script src="translations.js?v=8.4"></script>
+    <link rel="stylesheet" href="styles.css?v=8.5">
+    <script src="translations.js?v=8.5"></script>
 </head>
 <body>
     <!-- SCROLL PROGRESS BAR -->
@@ -804,11 +804,13 @@
                     <h3 class="text-gold-gradient" style="font-size: 1.4rem; margin-bottom: 5px;">धन्यवाद! (Thank You!)</h3>
                     <p style="font-size: 0.85rem; color: var(--dust);">कृपया खालील माध्यमातून देणगी पाठवा</p>
                 </div>
-                <div class="qr-code-box" style="margin-bottom: 15px; padding: 15px;">
-                    <div class="qr-placeholder" style="width: 130px; height: 130px; margin: 0 auto 10px;">
-                        <span class="qr-icon">📱</span>
-                        <p data-i18n="qr-text" style="font-size: 0.75rem;">QR कोड इथे येईल</p>
-                    </div>
+                <div class="qr-code-box" style="margin-bottom: 15px; padding: 15px; background: rgba(0,0,0,0.2); border-radius: 12px; border: 1px solid rgba(212, 175, 55, 0.3);">
+                    <!-- NEW: Mobile UPI Redirect Button at the top -->
+                    <a href="upi://pay?pa=shrirenukadevi@axl&pn=Renukadevi%20Sansthan" class="upi-pay-btn" style="margin-bottom: 15px; display: flex; justify-content: center; width: 100%;">
+                        <span class="upi-btn-icon">⚡</span> <span data-i18n="upi-pay-btn">थेट UPI ॲपवर पेमेंट करा</span>
+                    </a>
+                    
+                    <img src="images/donation-qr.png" alt="Donate QR Code" style="width: 140px; height: 140px; border-radius: 8px; margin: 0 auto; display: block; border: 3px solid var(--divine-gold); padding: 5px; background: white;">
                     <strong style="color: var(--divine-gold); display: block; margin-top: 10px; font-size: 0.95rem;">
                         <span data-i18n="pay-upi">UPI ID</span>: shrirenukadevi@axl
                     </strong>
@@ -854,14 +856,14 @@
                 <div class="payment-section">
                     <h3 class="step-title" data-i18n="step-2-title"><span class="step-num">२</span> पेमेंट करा</h3>
                     
-                    <div class="qr-code-box">
-                        <img src="images/donation-qr.png" alt="Donate QR Code" class="qr-image" style="width: 100%; max-width: 250px; border-radius: 12px; margin: 0 auto 15px auto; display: block; box-shadow: 0 4px 15px rgba(0,0,0,0.3); border: 2px solid var(--divine-gold);">
-                        <p class="qr-instruction" data-i18n="qr-inst">कोणत्याही UPI ॲपने स्कॅन करा<br>(GPay, PhonePe, Paytm)</p>
-                        
-                        <!-- NEW: Mobile UPI Redirect Button -->
-                        <a href="upi://pay?pa=shrirenukadevi@axl&pn=Renukadevi%20Sansthan" id="upi-deep-link" class="upi-pay-btn">
+                    <div class="qr-code-box" style="background: rgba(0,0,0,0.2); padding: 20px; border-radius: 16px; border: 1px solid rgba(212, 175, 55, 0.3);">
+                        <!-- NEW: Mobile UPI Redirect Button at the top -->
+                        <a href="upi://pay?pa=shrirenukadevi@axl&pn=Renukadevi%20Sansthan" id="upi-deep-link" class="upi-pay-btn" style="margin-bottom: 20px; display: flex; justify-content: center; width: 100%;">
                             <span class="upi-btn-icon">⚡</span> <span data-i18n="upi-pay-btn">थेट UPI ॲपवर पेमेंट करा</span>
                         </a>
+
+                        <img src="images/donation-qr.png" alt="Donate QR Code" class="qr-image" style="width: 180px; height: 180px; border-radius: 12px; margin: 0 auto 15px auto; display: block; border: 4px solid var(--divine-gold); padding: 8px; background: white;">
+                        <p class="qr-instruction" data-i18n="qr-inst">कोणत्याही UPI ॲपने स्कॅन करा<br>(GPay, PhonePe, Paytm)</p>
                     </div>
                     
                     <div class="pay-methods">
@@ -961,6 +963,6 @@
     </button>
     <audio id="temple-audio" loop preload="none" src="audio/ritu_tts_audio.mp3"></audio>
 
-    <script src="script.js?v=8.4"></script>
+    <script src="script.js?v=8.5"></script>
 </body>
 </html>
