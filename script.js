@@ -98,6 +98,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     applyTranslations();
     updateToggleUI();
+
+    initFestivalCountdown();
+    initTempleStatus();
     initScrollAnimations();
     initDarshanDate();
     initNavbar();
@@ -382,6 +385,29 @@ function resetForm() {
     document.querySelectorAll('.ctype-card').forEach(c => c.classList.remove('selected'));
 }
 
+// ===== AARTI AUDIO LOGIC =====
+let isAartiPlaying = false;
+function toggleAartiAudio() {
+    const audio = document.getElementById('temple-audio');
+    const btn = document.getElementById('aarti-play-btn');
+    const icon = btn.querySelector('.play-icon');
+    const text = btn.querySelector('span:not(.play-icon)');
+    
+    if (!isAartiPlaying) {
+        audio.play();
+        isAartiPlaying = true;
+        btn.classList.add('playing');
+        icon.innerText = '⏸';
+        text.innerText = window.currentLang === 'en' ? 'Pause Aarti' : 'आरती थांबवा';
+    } else {
+        audio.pause();
+        isAartiPlaying = false;
+        btn.classList.remove('playing');
+        icon.innerText = '▶';
+        text.innerText = window.currentLang === 'en' ? 'Listen Aarti' : 'आरती ऐका';
+    }
+}
+
 // ===== DONATION MODAL =====
 function openDonationModal() {
     const modal = document.getElementById('donation-modal');
@@ -482,6 +508,34 @@ function offerFlowers() {
     }
     
     setTimeout(() => container.remove(), 10000);
+}
+
+// ===== TEMPLE STATUS LOGIC =====
+function initTempleStatus() {
+    const badge = document.getElementById('temple-status');
+    const textEl = document.getElementById('status-text');
+    if (!badge || !textEl) return;
+
+    function updateStatus() {
+        // Standard IST time since we assume temple is in Maharashtra
+        const now = new Date();
+        const hour = now.getHours();
+        
+        // Open between 6:00 AM (6) and 9:00 PM (21)
+        const isOpen = hour >= 6 && hour < 21;
+        
+        if (isOpen) {
+            badge.classList.remove('closed');
+            textEl.innerText = window.currentLang === 'en' ? 'Open Now' : 'दर्शन चालू आहे';
+        } else {
+            badge.classList.add('closed');
+            textEl.innerText = window.currentLang === 'en' ? 'Closed' : 'दर्शन बंद आहे';
+        }
+    }
+    
+    updateStatus();
+    // Update every minute
+    setInterval(updateStatus, 60000);
 }
 
 /* ===== VIRTUAL PUJA MENU ===== */

@@ -12,8 +12,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400&family=Tiro+Devanagari+Hindi:ital@0;1&family=Mukta:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css?v=7.2">
-    <script src="translations.js?v=7.2"></script>
+    <link rel="stylesheet" href="styles.css?v=8.0">
+    <script src="translations.js?v=8.0"></script>
 </head>
 <body>
     <!-- SCROLL PROGRESS BAR -->
@@ -105,6 +105,13 @@
             </h1>
             <p class="hero-subtitle animate-on-scroll" data-i18n="hero-subtitle">राणीसावरगाव · गंगाखेड · परभणी · महाराष्ट्र</p>
             <p class="hero-tagline animate-on-scroll" data-i18n="hero-tagline">मराठवाड्याच्या मातीतलं पवित्र तीर्थक्षेत्र</p>
+            <div class="temple-status-wrapper animate-on-scroll">
+                <div class="temple-status-badge" id="temple-status">
+                    <span class="status-indicator"></span>
+                    <span class="status-text" id="status-text">तपासत आहे...</span>
+                    <span class="status-time">(वेळ: सकाळी ६:०० - रात्री ९:००)</span>
+                </div>
+            </div>
             <div class="hero-cta-group animate-on-scroll">
                 <div class="puja-menu-container">
                     <button class="hero-cta puja-btn" onclick="togglePujaMenu()" data-i18n="hero-cta-puja">🙏 आभासी पूजा</button>
@@ -120,6 +127,40 @@
         </div>
         <div class="hero-scroll-indicator"><div class="scroll-line"></div></div>
     </header>
+
+    <!-- NEW: FESTIVAL COUNTDOWN TIMER -->
+    <section id="festival-countdown" class="countdown-section">
+        <div class="container">
+            <div class="countdown-wrapper premium-card animate-on-scroll">
+                <div class="countdown-header">
+                    <span class="countdown-icon">🎉</span>
+                    <h3 id="next-festival-name">पुढील मोठा उत्सव: <span class="highlight">नवरात्रोत्सव २०२६</span></h3>
+                </div>
+                <div class="countdown-timer" id="countdown-timer">
+                    <div class="time-box">
+                        <span class="time-num" id="cd-days">00</span>
+                        <span class="time-label" data-i18n="cd-days">दिवस</span>
+                    </div>
+                    <div class="time-separator">:</div>
+                    <div class="time-box">
+                        <span class="time-num" id="cd-hours">00</span>
+                        <span class="time-label" data-i18n="cd-hours">तास</span>
+                    </div>
+                    <div class="time-separator">:</div>
+                    <div class="time-box">
+                        <span class="time-num" id="cd-minutes">00</span>
+                        <span class="time-label" data-i18n="cd-minutes">मिनिटे</span>
+                    </div>
+                    <div class="time-separator">:</div>
+                    <div class="time-box">
+                        <span class="time-num" id="cd-seconds">00</span>
+                        <span class="time-label" data-i18n="cd-seconds">सेकंद</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- TODAY's DARSHAN -->
     <section id="daily-darshan" class="section darshan-section">
         <div class="container">
@@ -180,7 +221,53 @@
         </div>
     </section>
 
-    <!-- Wave: Suvichar → About -->
+    <!-- NEW: AARTI & STOTRA SECTION -->
+    <section id="aarti-stotra" class="section aarti-section">
+        <div class="container">
+            <div class="section-header animate-on-scroll">
+                <span class="section-tag" data-i18n="sec-aarti-tag">भक्ती आणि स्तोत्र</span>
+                <h2 class="section-title shimmer-text" data-i18n="sec-aarti-title">श्री रेणुका माता आरती</h2>
+                <div class="section-divider"><span class="divider-icon">🪔</span></div>
+            </div>
+            
+            <div class="aarti-container animate-on-scroll">
+                <div class="aarti-card">
+                    <div class="aarti-audio-controls">
+                        <button class="aarti-play-btn" onclick="toggleAartiAudio()" id="aarti-play-btn">
+                            <span class="play-icon">▶</span> <span data-i18n="aarti-play">आरती ऐका</span>
+                        </button>
+                    </div>
+                    <div class="aarti-lyrics">
+                        <p>जय देवी जय देवी जय रेणुका माते ।<br>
+                        भक्तांना पावसी तू अगाध कृपेते ॥ धृ ॥</p>
+                        
+                        <p>तुळजापूरची भवानी, माहूरची रेणुका ।<br>
+                        वंदितो तुजला मी, माता जगदंबिका ।<br>
+                        सप्तशृंगी निवासिनी, कोल्हापूरची महालक्ष्मी ।<br>
+                        तुझ्या कृपेनेच सर्व सुखे मिळती ॥ १ ॥</p>
+
+                        <p>परशुराम माता तू, जमदग्नीची पत्नी ।<br>
+                        तुझ्या दर्शनाने हरती सर्व विघ्ने ।<br>
+                        कुंकुम-हळदीने सजले तुझे रूप ।<br>
+                        भक्तांना देते तू वरदान अनुपूप ॥ २ ॥</p>
+
+                        <p>राणीसावरगावमध्ये तुझा वास ।<br>
+                        दर्शन घेता पूर्ण होई सर्व आस ।<br>
+                        तुझ्या कृपेनेच होवो सर्वांचे कल्याण ।<br>
+                        हेच मागणे माते तुझे चरणी अर्पण ॥ ३ ॥</p>
+                        
+                        <p>जय देवी जय देवी जय रेणुका माते ।<br>
+                        भक्तांना पावसी तू अगाध कृपेते ॥</p>
+                    </div>
+                    <div class="aarti-footer">
+                        <span class="mantra">॥ ॐ श्री रेणुका मातायै नमः ॥</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Wave: Darshan → About -->
     <div class="wave-divider"><svg viewBox="0 0 1200 80" preserveAspectRatio="none"><path d="M0,30 C150,80 350,0 550,60 C750,80 950,10 1200,50 L1200,80 L0,80 Z"></path></svg></div>
 
     <section id="about" class="section about-section">
@@ -222,26 +309,59 @@
                 <div class="section-divider"><span class="divider-icon">☙</span></div>
             </div>
             <div class="aboutus-grid">
-                <div class="trust-card animate-on-scroll">
-                    <div class="trust-icon">🏛️</div>
-                    <h3 data-i18n="trust-1-h3">मंडळाविषयी</h3>
-                    <p data-i18n="trust-1-p">श्री रेणुका देवी मंदिर विश्वस्त मंडळ हे मंदिराच्या सर्व धार्मिक, सांस्कृतिक आणि आर्थिक व्यवस्थापनाची जबाबदारी सांभाळते. गावातील प्रतिष्ठित व्यक्तींचा समावेश असलेले हे मंडळ मंदिराच्या जतन आणि विकासासाठी कार्यरत आहे.</p>
-                    <div class="trust-badges">
-                        <span class="trust-badge" data-i18n="trust-badge-1">✅ नोंदणीकृत विश्वस्त संस्था</span>
-                        <span class="trust-badge" data-i18n="trust-badge-2">📋 वार्षिक लेखापरीक्षण</span>
+                <!-- Important Notice Card -->
+                <div class="trust-card notice-card animate-on-scroll">
+                    <div class="trust-icon" style="color: #ef4444;">⚠️</div>
+                    <h3 data-i18n="notice-h3" style="color: #ef4444;">भाविकांना महत्त्वाची सूचना</h3>
+                    <div class="notice-content">
+                        <p><strong>नोंदणी क्रं. ए (४७३१) परभणी</strong><br>हे संस्थान मा. धर्मादाय आयुक्त औरंगाबाद यांच्याकडून नोंदणीकृत आहे.</p>
+                        <p>पारदर्शकता ठेवण्यासाठी भाविकांनी श्री चरणी अर्पण करावयाची रोख रक्कम, सोने, चांदी, इत्यादी वस्तु <strong>दानपेटीतच टाकावे</strong> किंवा संस्थानच्या देणगी कक्षातून <strong>रितसर पावती घ्यावी</strong>.</p>
+                        <p>तसेच मंदिराचे सभा मंडपात कोणत्याही विश्वस्त/पुजाऱ्यांच्या हातात दान/दक्षिणा देऊ नये. आपण परस्पर पुजा करून श्री देवी समोर मौल्यवान वस्तु व दागिने ठेवल्यास त्याची नोंद संस्थानकडे राहणार नाही.</p>
+                        <div class="notice-footer">
+                            <small>नोट: संस्थानमध्ये जादा पैशाची मागणी केल्यास किंवा काही त्रास झाल्यास तक्रार बुकमध्ये नोंद करावी. — अध्यक्ष, श्री रेणुकादेवी संस्थान</small>
+                        </div>
                     </div>
                 </div>
+
+                <!-- Trustees & Mankari Card -->
+                <div class="trust-card animate-on-scroll">
+                    <div class="trust-icon">👥</div>
+                    <h3 data-i18n="trust-1-h3">विश्वस्त व मानकरी मंडळ</h3>
+                    <div class="trust-list-grid">
+                        <div class="trust-list-col">
+                            <h4 style="color: var(--divine-gold); font-size: 1rem; margin-bottom: 10px; border-bottom: 1px solid var(--divine-gold); padding-bottom: 5px;">॥ विश्वस्त मंडळ ॥</h4>
+                            <ul style="list-style: none; padding: 0; font-size: 0.9rem; line-height: 1.6;">
+                                <li><strong>अध्यक्ष:</strong> श्री बाबुराव रेणुकादास गळाकाटू</li>
+                                <li>श्री मोहनराव बळवंतराव गळाकाटू</li>
+                                <li>श्री सुरेश आनंदराव गळाकाटू</li>
+                                <li>श्री भुषण दुर्गादासराव गळाकाटू</li>
+                            </ul>
+                        </div>
+                        <div class="trust-list-col">
+                            <h4 style="color: var(--divine-gold); font-size: 1rem; margin-bottom: 10px; border-bottom: 1px solid var(--divine-gold); padding-bottom: 5px;">॥ मानकरी मंडळ ॥</h4>
+                            <ul style="list-style: none; padding: 0; font-size: 0.9rem; line-height: 1.6;">
+                                <li>१. श्री बापुराव दादाराव जाधव (मुकदम)</li>
+                                <li>२. प्रदिप शंकरराव जाधव (पो.पा.)</li>
+                                <li>३. श्री बालासाहेब देविदासराव मेकडे</li>
+                                <li>४. श्री नागनाथ बाबुराव जाधव (मालीपाटील)</li>
+                                <li>५. श्री केशव खेमाजी जाधव</li>
+                                <li>६. श्री नारायणराव बापुराव जाधव</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contact Info Card -->
                 <div class="trust-card animate-on-scroll">
                     <div class="trust-icon">📞</div>
                     <h3 data-i18n="trust-2-h3">संपर्क माहिती</h3>
                     <div class="contact-list">
                         <div class="contact-item"><span>📍</span><p data-i18n="contact-1">राणीसावरगाव, ता. गंगाखेड, जि. परभणी – ४३१५३६</p></div>
-                        <div class="contact-item"><span>📞</span><p data-i18n="contact-2">अध्यक्ष: श्री बाबुराव रेणुकादास गळाकोट - 9881393982</p></div>
-                        <div class="contact-item"><span>📞</span><p data-i18n="contact-3">श्री मोहनराव बळवंतराव गळाकोट - 9545198788</p></div>
+                        <div class="contact-item"><span>📞</span><p data-i18n="contact-2">अध्यक्ष: श्री बाबुराव गळाकाटू - 9881393982</p></div>
+                        <div class="contact-item"><span>📞</span><p data-i18n="contact-3">श्री मोहनराव गळाकाटू - 9545198788</p></div>
                         <div class="contact-item"><span>✉️</span><p>renukadevi.ranisawargaon@gmail.com</p></div>
                     </div>
                 </div>
-
             </div>
         </div>
     </section>
@@ -845,6 +965,6 @@
     </button>
     <audio id="temple-audio" loop preload="none" src="audio/ritu_tts_audio.mp3"></audio>
 
-    <script src="script.js?v=7.2"></script>
+    <script src="script.js?v=8.0"></script>
 </body>
 </html>
