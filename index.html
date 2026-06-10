@@ -12,8 +12,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400&family=Tiro+Devanagari+Hindi:ital@0;1&family=Mukta:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css?v=8.1">
-    <script src="translations.js?v=8.1"></script>
+    <link rel="stylesheet" href="styles.css?v=8.2">
+    <script src="translations.js?v=8.2"></script>
 </head>
 <body>
     <!-- SCROLL PROGRESS BAR -->
@@ -121,6 +121,7 @@
                         <button onclick="lightDiya(); togglePujaMenu()">✨ दीप प्रज्वलन</button>
                         <button onclick="ringBell(); togglePujaMenu()">🔔 घंटा नाद</button>
                         <button onclick="playDrum(); togglePujaMenu()">🥁 नगारा वादन (Play Drum)</button>
+                        <button onclick="openAartiModal(); togglePujaMenu()">📖 आरती वाचा व ऐका</button>
                     </div>
                 </div>
             </div>
@@ -221,51 +222,7 @@
         </div>
     </section>
 
-    <!-- NEW: AARTI & STOTRA SECTION -->
-    <section id="aarti-stotra" class="section aarti-section">
-        <div class="container">
-            <div class="section-header animate-on-scroll">
-                <span class="section-tag" data-i18n="sec-aarti-tag">भक्ती आणि स्तोत्र</span>
-                <h2 class="section-title shimmer-text" data-i18n="sec-aarti-title">श्री रेणुका माता आरती</h2>
-                <div class="section-divider"><span class="divider-icon">🪔</span></div>
-            </div>
-            
-            <div class="aarti-container animate-on-scroll">
-                <div class="aarti-card">
-                    <div class="aarti-audio-controls">
-                        <button class="aarti-play-btn" onclick="toggleAartiAudio()" id="aarti-play-btn">
-                            <span class="play-icon">▶</span> <span data-i18n="aarti-play">आरती ऐका</span>
-                        </button>
-                    </div>
-                    <div class="aarti-lyrics">
-                        <p>जय देवी जय देवी जय रेणुका माते ।<br>
-                        भक्तांना पावसी तू अगाध कृपेते ॥ धृ ॥</p>
-                        
-                        <p>तुळजापूरची भवानी, माहूरची रेणुका ।<br>
-                        वंदितो तुजला मी, माता जगदंबिका ।<br>
-                        सप्तशृंगी निवासिनी, कोल्हापूरची महालक्ष्मी ।<br>
-                        तुझ्या कृपेनेच सर्व सुखे मिळती ॥ १ ॥</p>
-
-                        <p>परशुराम माता तू, जमदग्नीची पत्नी ।<br>
-                        तुझ्या दर्शनाने हरती सर्व विघ्ने ।<br>
-                        कुंकुम-हळदीने सजले तुझे रूप ।<br>
-                        भक्तांना देते तू वरदान अनुपूप ॥ २ ॥</p>
-
-                        <p>राणीसावरगावमध्ये तुझा वास ।<br>
-                        दर्शन घेता पूर्ण होई सर्व आस ।<br>
-                        तुझ्या कृपेनेच होवो सर्वांचे कल्याण ।<br>
-                        हेच मागणे माते तुझे चरणी अर्पण ॥ ३ ॥</p>
-                        
-                        <p>जय देवी जय देवी जय रेणुका माते ।<br>
-                        भक्तांना पावसी तू अगाध कृपेते ॥</p>
-                    </div>
-                    <div class="aarti-footer">
-                        <span class="mantra">॥ ॐ श्री रेणुका मातायै नमः ॥</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+<!-- Removed inline aarti section to a modal -->
 
     <!-- Wave: Darshan → About -->
     <div class="wave-divider"><svg viewBox="0 0 1200 80" preserveAspectRatio="none"><path d="M0,30 C150,80 350,0 550,60 C750,80 950,10 1200,50 L1200,80 L0,80 Z"></path></svg></div>
@@ -946,6 +903,50 @@
             </div>
         </div>
     </div>
+    
+    <!-- NEW AARTI MODAL -->
+    <div class="modal" id="aarti-modal">
+        <div class="modal-content" style="max-width: 500px; padding: 20px;">
+            <button class="close-modal" onclick="closeAartiModal()">✕</button>
+            <div class="modal-header">
+                <h2>श्री रेणुका माता आरती</h2>
+                <p>भक्ती आणि स्तोत्र</p>
+            </div>
+            <div class="aarti-card" style="box-shadow: none; padding: 10px;">
+                <div class="aarti-audio-controls">
+                    <button class="aarti-play-btn" onclick="toggleAartiAudio()" id="aarti-play-btn">
+                        <span class="play-icon">▶</span> <span data-i18n="aarti-play">आरती ऐका</span>
+                    </button>
+                </div>
+                <div class="aarti-lyrics">
+                    <p>जय देवी जय देवी जय रेणुका माते ।<br>
+                    भक्तांना पावसी तू अगाध कृपेते ॥ धृ ॥</p>
+                    
+                    <p>तुळजापूरची भवानी, माहूरची रेणुका ।<br>
+                    वंदितो तुजला मी, माता जगदंबिका ।<br>
+                    सप्तशृंगी निवासिनी, कोल्हापूरची महालक्ष्मी ।<br>
+                    तुझ्या कृपेनेच सर्व सुखे मिळती ॥ १ ॥</p>
+
+                    <p>परशुराम माता तू, जमदग्नीची पत्नी ।<br>
+                    तुझ्या दर्शनाने हरती सर्व विघ्ने ।<br>
+                    कुंकुम-हळदीने सजले तुझे रूप ।<br>
+                    भक्तांना देते तू वरदान अनुपूप ॥ २ ॥</p>
+
+                    <p>राणीसावरगावमध्ये तुझा वास ।<br>
+                    दर्शन घेता पूर्ण होई सर्व आस ।<br>
+                    तुझ्या कृपेनेच होवो सर्वांचे कल्याण ।<br>
+                    हेच मागणे माते तुझे चरणी अर्पण ॥ ३ ॥</p>
+                    
+                    <p>जय देवी जय देवी जय रेणुका माते ।<br>
+                    भक्तांना पावसी तू अगाध कृपेते ॥</p>
+                </div>
+                <div class="aarti-footer">
+                    <span class="mantra">॥ ॐ श्री रेणुका मातायै नमः ॥</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    
     <div class="virtual-bell-container" id="bell-container"></div>
     
     <!-- AARTI THALI -->
@@ -965,6 +966,6 @@
     </button>
     <audio id="temple-audio" loop preload="none" src="audio/ritu_tts_audio.mp3"></audio>
 
-    <script src="script.js?v=8.1"></script>
+    <script src="script.js?v=8.2"></script>
 </body>
 </html>

@@ -408,6 +408,21 @@ function toggleAartiAudio() {
     }
 }
 
+function openAartiModal() {
+    const modal = document.getElementById('aarti-modal');
+    if (modal) modal.classList.add('active');
+}
+
+function closeAartiModal() {
+    const modal = document.getElementById('aarti-modal');
+    if (modal) modal.classList.remove('active');
+    
+    // Stop audio if modal is closed
+    if (isAartiPlaying) {
+        toggleAartiAudio();
+    }
+}
+
 // ===== DONATION MODAL =====
 function openDonationModal() {
     const modal = document.getElementById('donation-modal');
