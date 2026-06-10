@@ -408,8 +408,8 @@ function updateUPIUrl(amount) {
     const upiLink = document.getElementById('upi-deep-link');
     if (upiLink && amount > 0) {
         // Update these with the actual temple UPI details
-        const upiId = "renukadevi@upi";
-        const payeeName = "Shri%20Renuka%20Devi%20Temple";
+        const upiId = "shrirenukadevi@axl";
+        const payeeName = "Renukadevi%20Sansthan";
         upiLink.href = `upi://pay?pa=${upiId}&pn=${payeeName}&cu=INR&am=${amount}`;
     }
 }
