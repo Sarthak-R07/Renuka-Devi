@@ -905,10 +905,11 @@
     </div>
     
     <!-- NEW AARTI MODAL -->
-    <div class="modal" id="aarti-modal">
-        <div class="modal-content" style="max-width: 500px; padding: 20px;">
-            <button class="close-modal" onclick="closeAartiModal()">✕</button>
-            <div class="modal-header">
+    <div class="modal-overlay" id="aarti-modal">
+        <div class="modal-box small-popup" style="max-width: 500px; padding: 20px; text-align: center;">
+            <button class="modal-close-btn" onclick="closeAartiModal()">✕</button>
+            <div class="modal-head">
+                <span class="modal-diya">🪔</span>
                 <h2>श्री रेणुका माता आरती</h2>
                 <p>भक्ती आणि स्तोत्र</p>
             </div>
@@ -966,6 +967,6 @@
     </button>
     <audio id="temple-audio" loop preload="none" src="audio/ritu_tts_audio.mp3"></audio>
 
-    <script src="script.js?v=8.2"></script>
+    <script src="script.js?v=8.3"></script>
 </body>
 </html>
