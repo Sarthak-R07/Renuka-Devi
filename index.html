@@ -85,7 +85,7 @@
                 <li><a href="#history" class="nav-link" data-i18n="nav-history">इतिहास</a></li>
                 <li><a href="#visit" class="nav-link" data-i18n="nav-visit">दर्शन माहिती</a></li>
                 <li><a href="#gallery" class="nav-link" data-i18n="nav-gallery">फोटो लायब्ररी</a></li>
-                <li><a href="#help" class="nav-link" data-i18n="nav-help">मदत</a></li>
+
                 <li><a href="#complaint" class="nav-link" data-i18n="nav-complaint">तक्रार</a></li>
                 <li><button class="nav-donate-btn" id="nav-donate-btn" onclick="openDonationModal()" data-i18n="nav-donate">🙏 देणगी</button></li>
             </ul>
@@ -117,10 +117,6 @@
                     <button class="hero-cta puja-btn" onclick="togglePujaMenu()" data-i18n="hero-cta-puja">🙏 आभासी पूजा</button>
                     <div id="puja-menu" class="puja-menu">
                         <button onclick="offerFlowers(); togglePujaMenu()">🌺 पुष्पवृष्टी</button>
-                        <button onclick="startAarti(); togglePujaMenu()">🪔 आरती करा (Aarti)</button>
-                        <button onclick="lightDiya(); togglePujaMenu()">✨ दीप प्रज्वलन</button>
-                        <button onclick="ringBell(); togglePujaMenu()">🔔 घंटा नाद</button>
-                        <button onclick="playDrum(); togglePujaMenu()">🥁 नगारा वादन (Play Drum)</button>
                         <button onclick="openAartiModal(); togglePujaMenu()">📖 आरती वाचा व ऐका</button>
                     </div>
                 </div>
@@ -522,15 +518,7 @@
                         <p class="timing-note" data-i18n="timing-note">* सणांच्या दिवशी विशेष वेळापत्रक असते</p>
                     </div>
                 </div>
-                <div class="visit-card animate-on-scroll" id="festivals-info">
-                    <div class="visit-card-header"><h3 data-i18n="visit-2-h3">🪔 प्रमुख सण आणि उत्सव</h3></div>
-                    <div class="visit-card-body">
-                        <div class="festival-item"><span class="festival-dot"></span><div><strong data-i18n="fest-1-title">नवरात्रोत्सव</strong><p data-i18n="fest-1-p">नऊ दिवस विशेष पूजा, गरबा, दांडिया आणि भव्य आरती.</p></div></div>
-                        <div class="festival-item"><span class="festival-dot"></span><div><strong data-i18n="fest-2-title">वार्षिक यात्रा (जत्रा)</strong><p data-i18n="fest-2-p">चैत्र पौर्णिमेच्या सुमारास भव्य यात्रा भरते.</p></div></div>
-                        <div class="festival-item"><span class="festival-dot"></span><div><strong data-i18n="fest-3-title">मकर संक्रांती</strong><p data-i18n="fest-3-p">हळदी-कुंकू समारंभ, तिळगूळ वाटप आणि विशेष पूजा.</p></div></div>
-                        <div class="festival-item"><span class="festival-dot"></span><div><strong data-i18n="fest-4-title">दसरा</strong><p data-i18n="fest-4-p">सीमोल्लंघन, शस्त्रपूजा आणि देवीच्या विशेष अलंकार पूजा.</p></div></div>
-                    </div>
-                </div>
+
                 <div class="visit-card visit-card-full animate-on-scroll" id="travel-directions">
                     <div class="visit-card-header"><h3 data-i18n="visit-3-h3">📍 कसे पोहोचायचे?</h3></div>
                     <div class="visit-card-body directions-grid">
@@ -617,27 +605,7 @@
         </div>
     </section>
 
-    <!-- Wave: Gallery → FAQ -->
-    <div class="wave-divider"><svg viewBox="0 0 1200 80" preserveAspectRatio="none"><path d="M0,60 C200,10 400,70 600,30 C800,0 1000,60 1200,20 L1200,80 L0,80 Z"></path></svg></div>
 
-    <!-- HELP / FAQ -->
-    <section id="help" class="section help-section">
-        <div class="container">
-            <div class="section-header animate-on-scroll">
-                <span class="section-tag" data-i18n="sec-faq-tag">मदत</span>
-                <h2 class="section-title shimmer-text" data-i18n="sec-faq-title">वारंवार विचारले जाणारे प्रश्न</h2>
-                <div class="section-divider"><span class="divider-icon">☙</span></div>
-            </div>
-            <div class="faq-container">
-                <div class="faq-item animate-on-scroll"><button class="faq-q"><span data-i18n="faq-q1">मंदिराचे दर्शन वेळ काय आहे?</span> <span class="faq-ic">+</span></button><div class="faq-a"><p data-i18n="faq-a1">सकाळी ६:०० ते दुपारी १२:०० आणि संध्याकाळी ४:०० ते रात्री ८:३०. महाआरती सकाळी ७:०० व संध्याकाळी ७:०० वाजता.</p></div></div>
-                <div class="faq-item animate-on-scroll"><button class="faq-q"><span data-i18n="faq-q2">कोणते विशेष सण साजरे होतात?</span> <span class="faq-ic">+</span></button><div class="faq-a"><p data-i18n="faq-a2">नवरात्रोत्सव (९ दिवस), चैत्र पौर्णिमेची वार्षिक यात्रा, दसरा, आणि मकर संक्रांती हे प्रमुख सण आहेत.</p></div></div>
-                <div class="faq-item animate-on-scroll"><button class="faq-q"><span data-i18n="faq-q3">गंगाखेडवरून कसे पोहोचावे?</span> <span class="faq-ic">+</span></button><div class="faq-a"><p data-i18n="faq-a3">गंगाखेड बसस्थानकावरून राणीसावरगावसाठी एसटी बस किंवा शेअर ऑटो मिळतात. अंतर अंदाजे १५-२० कि.मी. आहे.</p></div></div>
-                <div class="faq-item animate-on-scroll"><button class="faq-q"><span data-i18n="faq-q4">मंदिरात फोटो काढण्याची परवानगी आहे का?</span> <span class="faq-ic">+</span></button><div class="faq-a"><p data-i18n="faq-a4">बाहेरील भागात फोटो काढता येतात. गर्भगृहात पुजाऱ्यांची परवानगी घ्यावी.</p></div></div>
-                <div class="faq-item animate-on-scroll"><button class="faq-q"><span data-i18n="faq-q5">देणगी कशी देता येईल?</span> <span class="faq-ic">+</span></button><div class="faq-a"><p data-i18n="faq-a5">UPI, बँक ट्रान्सफर किंवा मंदिरात प्रत्यक्ष देणगी देता येते. वरील 'देणगी द्या' बटणावर क्लिक करा.</p></div></div>
-                <div class="faq-item animate-on-scroll"><button class="faq-q"><span data-i18n="faq-q6">राहण्याची सोय आहे का?</span> <span class="faq-ic">+</span></button><div class="faq-a"><p data-i18n="faq-a6">मंदिरात धर्मशाळा उपलब्ध आहे. अधिक सुविधांसाठी गंगाखेडमध्ये हॉटेल उपलब्ध आहेत.</p></div></div>
-            </div>
-        </div>
-    </section>
 
     <!-- Wave: FAQ → Complaint -->
     <div class="wave-divider wave-gold"><svg viewBox="0 0 1200 80" preserveAspectRatio="none"><path d="M0,50 C250,0 500,80 750,30 C950,0 1100,60 1200,40 L1200,80 L0,80 Z"></path></svg></div>
@@ -710,11 +678,11 @@
                 <div class="location-details">
                     <h3 data-i18n="loc-temple-name">श्री रेणुका माता मंदिर</h3>
                     <p data-i18n="loc-address">राणीसावरगाव, तालुका गंगाखेड, जिल्हा परभणी, महाराष्ट्र - ४३१५३६</p>
-                    <a href="https://www.google.com/maps/search/Renuka+Mata+Temple,+Ranisawargaon,+Gangakhed,+Parbhani" target="_blank" class="btn-primary" data-i18n="loc-nav-btn">Google Maps वर उघडा 🗺️</a>
+                    <a href="https://maps.app.goo.gl/tbTaN767w23Md2Da8" target="_blank" class="btn-primary" data-i18n="loc-nav-btn">Google Maps वर उघडा 🗺️</a>
                 </div>
                 <div class="map-wrapper">
-                    <!-- Google Maps Embed for Ranisawargaon -->
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d30232.07222383803!2d76.782064!3d18.932402!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcf07883279c13b%3A0xcc18bf0a4980a!2sRanisawargaon%2C%20Maharashtra%20431536!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    <!-- Google Maps Embed - Shri Renuka Devi Temple, Ranisawargaon (Accurate Location) -->
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3782.5!2d76.8659586!3d18.8596486!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcfc2556bd2d4ff%3A0xd7a10a766652b9e6!2sRenuka+Devi+Temple!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                 </div>
             </div>
         </div>
@@ -735,7 +703,7 @@
                     <a href="#history" data-i18n="nav-history">इतिहास</a>
                     <a href="#visit" data-i18n="nav-visit">दर्शन माहिती</a>
                     <a href="#gallery" data-i18n="nav-gallery">फोटो लायब्ररी</a>
-                    <a href="#help" data-i18n="nav-help">मदत</a>
+
                     <a href="#complaint" data-i18n="nav-complaint">तक्रार</a>
                 </div>
             </div>
@@ -762,10 +730,7 @@
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="nav-icon"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
             <span data-i18n="bni-don">देणगी</span>
         </button>
-        <a href="#help" class="bni">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="nav-icon"><circle cx="12" cy="12" r="10"></circle><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
-            <span data-i18n="bni-help">मदत</span>
-        </a>
+
         <a href="#complaint" class="bni">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="nav-icon"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
             <span data-i18n="bni-comp">तक्रार</span>
